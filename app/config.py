@@ -36,6 +36,10 @@ class Settings(BaseSettings):
     # Number of times a schema-invalid plan is handed back to the model (basically a retry limit)
 
     ctgov_base_url: str = "https://clinicaltrials.gov/api/v2"
+
+    ctgov_user_agent: str = (
+        "ctgov-viz-agent/1.0 (+https://github.com/rayyanshuda/ctgov-viz-agent)"
+    )
     http_timeout_seconds: float = 30.0
     http_max_retries: int = 3
 

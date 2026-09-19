@@ -17,7 +17,7 @@ import respx
 from app.cache import ResponseCache
 from app.ctgov.client import CTGovClient
 from app.executor import PlanExecutor, enforce_user_filters
-from app.models.plan import AnalysisPlan
+from app.models.plan import AnalysisPlan, TrialFilterSpec
 from app.models.request import VisualizeRequest
 
 FIXTURE = Path(__file__).parent / "fixtures" / "myeloma_page.json"
@@ -353,3 +353,51 @@ class TestHistogramBinning:
         binned = sum(row["trial_count"] for row in response.visualization.data)
         reported = sum(1 for r in records if r.enrollment is not None)
         assert binned == reported
+
+
+class TestUpstreamForbidden:
+    # ClinicalTrials.gov sits behind a WAF that answers 403 rather than 429 when a source
+    # address looks busy. Datacenter IPs are shared, so a cloud deployment can be refused
+    # while the same request works from a laptop.
+
+    async def test_transient_403_is_retried_and_succeeds(self, settings, tmp_path, page):
+        from app.cache import ResponseCache
+
+        calls = {"n": 0}
+
+        def responder(request):
+            calls["n"] += 1
+            if calls["n"] == 1:
+                return httpx.Response(403, text="<!doctype html><title>403</title>403 Forbidden")
+            return httpx.Response(200, json={**page, "nextPageToken": None})
+
+        fast = settings.model_copy(update={"http_max_retries": 3})
+        client = CTGovClient(fast, ResponseCache(tmp_path / "c", 60, enabled=False))
+        with respx.mock(assert_all_called=False) as mock:
+            mock.get(url__startswith=STUDIES_URL).mock(side_effect=responder)
+            result = await client.fetch(
+                TrialFilterSpec(conditions=["melanoma"]), fields=("Phase",), max_studies=10
+            )
+        assert result.records, "a one-off 403 should be retried, not surfaced"
+        assert calls["n"] == 2
+
+    async def test_persistent_403_explains_the_real_cause(self, settings, tmp_path):
+        from app.cache import ResponseCache
+        from app.errors import UpstreamError
+
+        fast = settings.model_copy(update={"http_max_retries": 2})
+        client = CTGovClient(fast, ResponseCache(tmp_path / "c", 60, enabled=False))
+        with respx.mock(assert_all_called=False) as mock:
+            mock.get(url__startswith=STUDIES_URL).mock(
+                return_value=httpx.Response(403, text="403 Forbidden")
+            )
+            with pytest.raises(UpstreamError) as exc:
+                await client.fetch(
+                    TrialFilterSpec(conditions=["melanoma"]), fields=("Phase",), max_studies=10
+                )
+
+        message, remedy = exc.value.message, exc.value.remedy
+        assert "datacenter" in message, "should name the actual cause"
+        # The generic 'retry shortly' advice is wrong for a sustained block.
+        assert "retry shortly" not in (remedy or "").lower()
+        assert "unlikely to help" in remedy

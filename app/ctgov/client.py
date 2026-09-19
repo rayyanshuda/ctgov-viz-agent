@@ -27,7 +27,7 @@ STUDIES_PATH = "/studies"
 # Always requested, because every citation needs an ID and a title to quote
 BASE_FIELDS: tuple[str, ...] = ("NCTId", "BriefTitle")
 
-_RETRYABLE_STATUS = {429, 500, 502, 503, 504}
+_RETRYABLE_STATUS = {403, 429, 500, 502, 503, 504}
 
 
 @dataclass
@@ -77,7 +77,11 @@ class CTGovClient:
             self._client = httpx.AsyncClient(
                 base_url=self.settings.ctgov_base_url,
                 timeout=self.settings.http_timeout_seconds,
-                headers={"Accept": "application/json", "User-Agent": "ctgov-viz-agent/1.0"},
+                headers={
+                    "Accept": "application/json",
+                    "Accept-Language": "en-US,en;q=0.9",
+                    "User-Agent": self.settings.ctgov_user_agent,
+                },
             )
         return self._client
 
@@ -139,6 +143,17 @@ class CTGovClient:
                 )
                 await asyncio.sleep(delay)
 
+        if last_error == "HTTP 403":
+            # Telling the caller to "retry shortly" here would be wrong: a sustained 403
+            # is the upstream WAF refusing this source address, not a passing blip.
+            raise UpstreamError(
+                "ClinicalTrials.gov refused this request with HTTP 403 after "
+                f"{self.settings.http_max_retries} attempts. Its WAF blocks some "
+                "datacenter IP ranges, so a cloud-hosted deployment can be refused while "
+                "the identical request succeeds from a laptop.",
+                remedy="Run the service locally, or deploy somewhere whose outbound IP "
+                "range is not blocked. Retrying from the same host is unlikely to help.",
+            )
         raise UpstreamError(
             f"ClinicalTrials.gov request failed after {self.settings.http_max_retries} "
             f"attempts: {last_error}"
