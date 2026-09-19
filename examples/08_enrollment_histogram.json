@@ -1,0 +1,1138 @@
+{
+  "request": {
+    "query": "What does the distribution of enrollment sizes look like for phase 3 oncology trials?"
+  },
+  "response": {
+    "status": "ok",
+    "question": "What does the distribution of enrollment sizes look like for phase 3 oncology trials?",
+    "visualization": {
+      "type": "histogram",
+      "title": "Distribution of Enrollment Size in Phase 3 Oncology Trials Started 2015-2025",
+      "subtitle": "Interventional Phase 3 trials with a cancer condition; log-scaled enrollment bins",
+      "encoding": {
+        "x": {
+          "field": "bin",
+          "type": "ordinal",
+          "title": "Enrollment",
+          "unit": "participants"
+        },
+        "y": {
+          "field": "trial_count",
+          "type": "quantitative",
+          "title": "Number of Trials",
+          "unit": "trials"
+        }
+      },
+      "data": [
+        {
+          "bin": "1",
+          "bin_start": 1,
+          "bin_end": 2,
+          "trial_count": 13,
+          "contributing_trial_count": 13,
+          "citations": [
+            {
+              "nct_id": "NCT02326285",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 1",
+              "context": "Induction Therapy With Intercalated Tyrosine Kinase Inhibitor (TKI) and Chemotherapy in NSCLC With Activating Epidermal Growth Factor Receptor (EGFR) Mutation in Stages II-IIIB",
+              "url": "https://clinicaltrials.gov/study/NCT02326285"
+            },
+            {
+              "nct_id": "NCT02539342",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 1",
+              "context": "Caphosol Study: Prevention of Oral Mucositis in Children, Adolescents and Young Adults Receiving Chemotherapy",
+              "url": "https://clinicaltrials.gov/study/NCT02539342"
+            },
+            {
+              "nct_id": "NCT03233828",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 1",
+              "context": "Pre-Treatment of Highly Suspicious Pigmented Skin Lesions With Interleukin-2",
+              "url": "https://clinicaltrials.gov/study/NCT03233828"
+            }
+          ]
+        },
+        {
+          "bin": "2",
+          "bin_start": 2,
+          "bin_end": 3,
+          "trial_count": 12,
+          "contributing_trial_count": 12,
+          "citations": [
+            {
+              "nct_id": "NCT02398994",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 2",
+              "context": "A Multicentre randomiSed Controlled TRial of IntraVEnous Immunoglobulin Versus Standard Therapy for Transverse Myelitis",
+              "url": "https://clinicaltrials.gov/study/NCT02398994"
+            },
+            {
+              "nct_id": "NCT02417129",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 2",
+              "context": "BI 695500 vs Rituxan First Line Treatment in Patients With Low Tumor Burden Follicular Lymphoma",
+              "url": "https://clinicaltrials.gov/study/NCT02417129"
+            },
+            {
+              "nct_id": "NCT02425878",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 2",
+              "context": "Ulipristal Acetate 10 mg and Asisted Reproduction",
+              "url": "https://clinicaltrials.gov/study/NCT02425878"
+            }
+          ]
+        },
+        {
+          "bin": "3",
+          "bin_start": 3,
+          "bin_end": 4,
+          "trial_count": 4,
+          "contributing_trial_count": 4,
+          "citations": [
+            {
+              "nct_id": "NCT02366663",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 3",
+              "context": "BEAM vs. 90-Yttrium Ibritumomab Tiuxetan (Zevalin\u00ae)/BEAM With ASCT for Relapsed DLBCL",
+              "url": "https://clinicaltrials.gov/study/NCT02366663"
+            },
+            {
+              "nct_id": "NCT02473848",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 3",
+              "context": "Ingenol Mebutate Gel 0.05% in Kidney Transplant Recipients With Actinic Keratoses",
+              "url": "https://clinicaltrials.gov/study/NCT02473848"
+            },
+            {
+              "nct_id": "NCT04485104",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 3",
+              "context": "Assessment of Adjunctive Cannabidiol Oral Solution (GWP42003-P) in Children With Tuberous Sclerosis Complex (TSC), Dravet Syndrome (DS), or Lennox-Gastaut Syndrome (LGS) Who\u2026",
+              "url": "https://clinicaltrials.gov/study/NCT04485104"
+            }
+          ]
+        },
+        {
+          "bin": "4\u20135",
+          "bin_start": 4,
+          "bin_end": 6,
+          "trial_count": 17,
+          "contributing_trial_count": 17,
+          "citations": [
+            {
+              "nct_id": "NCT02419118",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 4",
+              "context": "\"Monoclonal Antibodies for Treatment of Multiple Myeloma. Emphasis on the CD38 Antibody Daratumumab \"",
+              "url": "https://clinicaltrials.gov/study/NCT02419118"
+            },
+            {
+              "nct_id": "NCT02465112",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 4",
+              "context": "Metabolic Radiotherapy After Complete Resection of Liver Metastases in Patient With Digestive Neuroendocrine Tumor",
+              "url": "https://clinicaltrials.gov/study/NCT02465112"
+            },
+            {
+              "nct_id": "NCT02805452",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 4",
+              "context": "Solifenacin Succinate for Treatment of Urinary Toxicity Occurring During Radiotherapy of Prostatic Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT02805452"
+            }
+          ]
+        },
+        {
+          "bin": "6\u20139",
+          "bin_start": 6,
+          "bin_end": 10,
+          "trial_count": 31,
+          "contributing_trial_count": 31,
+          "citations": [
+            {
+              "nct_id": "NCT02009423",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 7",
+              "context": "Masitinib in Patients With Localized, Primary GIST After Complete Surgery and With High Risk of Recurrence",
+              "url": "https://clinicaltrials.gov/study/NCT02009423"
+            },
+            {
+              "nct_id": "NCT02115386",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 7",
+              "context": "Trial to Evaluate the Improvement of Chronic Low-grade AEs in Patients With Ph+ CML With Optimal Response to Imatinib When Switched to Nilotinib",
+              "url": "https://clinicaltrials.gov/study/NCT02115386"
+            },
+            {
+              "nct_id": "NCT02236936",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 8",
+              "context": "Parenteral Nutrition for Patients Treated for Locally Advanced Inoperable Tumors of the Head and Neck",
+              "url": "https://clinicaltrials.gov/study/NCT02236936"
+            }
+          ]
+        },
+        {
+          "bin": "10\u201315",
+          "bin_start": 10,
+          "bin_end": 16,
+          "trial_count": 68,
+          "contributing_trial_count": 68,
+          "citations": [
+            {
+              "nct_id": "NCT02319200",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 11",
+              "context": "Primary Prevention Hepatocellular Carcinoma by Metformin",
+              "url": "https://clinicaltrials.gov/study/NCT02319200"
+            },
+            {
+              "nct_id": "NCT02516696",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 12",
+              "context": "BiRd vs. Rd as Initial Therapy in Multiple Myeloma",
+              "url": "https://clinicaltrials.gov/study/NCT02516696"
+            },
+            {
+              "nct_id": "NCT02591017",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 11",
+              "context": "Comparison of Oral Morphine Versus Nasal Ketamine Spray With Chitosan in Cancer Pain Outpatients",
+              "url": "https://clinicaltrials.gov/study/NCT02591017"
+            }
+          ]
+        },
+        {
+          "bin": "16\u201325",
+          "bin_start": 16,
+          "bin_end": 26,
+          "trial_count": 107,
+          "contributing_trial_count": 107,
+          "citations": [
+            {
+              "nct_id": "NCT02130323",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 22",
+              "context": "Topical Imiquimod vs. LEEP for Women With Carcinoma In-situ of the Cervix",
+              "url": "https://clinicaltrials.gov/study/NCT02130323"
+            },
+            {
+              "nct_id": "NCT02288897",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 20",
+              "context": "PV-10 vs Chemotherapy or Oncolytic Viral Therapy for Treatment of Locally Advanced Cutaneous Melanoma",
+              "url": "https://clinicaltrials.gov/study/NCT02288897"
+            },
+            {
+              "nct_id": "NCT02340728",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 24",
+              "context": "Endoscopic Biliary Co-axial Stent Placement Plus/Minus Use of Radiofrequency Ablation (RFA) for Clearance of Occluded Self Expandable Metal Stents (SEMS) in Patients With Distal\u2026",
+              "url": "https://clinicaltrials.gov/study/NCT02340728"
+            }
+          ]
+        },
+        {
+          "bin": "26\u201340",
+          "bin_start": 26,
+          "bin_end": 41,
+          "trial_count": 169,
+          "contributing_trial_count": 169,
+          "citations": [
+            {
+              "nct_id": "NCT01404156",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 29",
+              "context": "Preoperative Chemotherapy vs. Chemoradiation in Esophageal / GEJ Adenocarcinoma",
+              "url": "https://clinicaltrials.gov/study/NCT01404156"
+            },
+            {
+              "nct_id": "NCT02020928",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 36",
+              "context": "Laser Therapy Prevents Mucositis Oral in Chemotherapy for Bone Marrow Transplantation?",
+              "url": "https://clinicaltrials.gov/study/NCT02020928"
+            },
+            {
+              "nct_id": "NCT02203812",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 32",
+              "context": "Effect of Probiotic Lozenge on Gingivitis and Periodontitis",
+              "url": "https://clinicaltrials.gov/study/NCT02203812"
+            }
+          ]
+        },
+        {
+          "bin": "41\u201364",
+          "bin_start": 41,
+          "bin_end": 65,
+          "trial_count": 256,
+          "contributing_trial_count": 256,
+          "citations": [
+            {
+              "nct_id": "NCT01980875",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 57",
+              "context": "Efficacy and Safety of Idelalisib in Combination With Obinutuzumab Compared to Chlorambucil in Combination With Obinutuzumab for Previously Untreated Chronic Lymphocytic Leukemia",
+              "url": "https://clinicaltrials.gov/study/NCT01980875"
+            },
+            {
+              "nct_id": "NCT02195232",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 64",
+              "context": "Cancer Associated Thrombosis and Isoquercetin (CATIQ)",
+              "url": "https://clinicaltrials.gov/study/NCT02195232"
+            },
+            {
+              "nct_id": "NCT02240017",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 46",
+              "context": "A Study Evaluating Chemotherapy With Fractionated Cisplatin/Gemcitabine Versus Carboplatin/Gemcitabine in the Treatment of Advanced or Metastatic Urothelial Cancer With Impaired\u2026",
+              "url": "https://clinicaltrials.gov/study/NCT02240017"
+            }
+          ]
+        },
+        {
+          "bin": "65\u2013102",
+          "bin_start": 65,
+          "bin_end": 103,
+          "trial_count": 374,
+          "contributing_trial_count": 374,
+          "citations": [
+            {
+              "nct_id": "NCT01905046",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 86",
+              "context": "Metformin Hydrochloride in Preventing Breast Cancer in Patients With Atypical Hyperplasia or In Situ Breast Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT01905046"
+            },
+            {
+              "nct_id": "NCT02059499",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 91",
+              "context": "Imiquimod, Fluorouracil, or Observation in Treating HIV-Positive Patients With High-Grade Anal Squamous Skin Lesions",
+              "url": "https://clinicaltrials.gov/study/NCT02059499"
+            },
+            {
+              "nct_id": "NCT02251392",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 100",
+              "context": "Evaluation of Therapeutic Efficacy in Use of Chamomilla Gel, Chamomilla Infuse and Urea in Radiodermatitis",
+              "url": "https://clinicaltrials.gov/study/NCT02251392"
+            }
+          ]
+        },
+        {
+          "bin": "103\u2013163",
+          "bin_start": 103,
+          "bin_end": 164,
+          "trial_count": 537,
+          "contributing_trial_count": 537,
+          "citations": [
+            {
+              "nct_id": "NCT01394679",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 154",
+              "context": "A Phase 3 Study of 99mTC-EC-DG SPECT/CT Versus PET/CT in Lung Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT01394679"
+            },
+            {
+              "nct_id": "NCT01951469",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 160",
+              "context": "Gefitinib With or Without Chemotherapy in Brain Metastases From Non-small Cell Lung Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT01951469"
+            },
+            {
+              "nct_id": "NCT01951482",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 160",
+              "context": "Pemetrexed/Platinum With or Without Bevacizumab in Brain Metastases From Patients With EGFR/ALK Negative Non-Squamous Non-small Cell Lung Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT01951482"
+            }
+          ]
+        },
+        {
+          "bin": "164\u2013260",
+          "bin_start": 164,
+          "bin_end": 261,
+          "trial_count": 747,
+          "contributing_trial_count": 747,
+          "citations": [
+            {
+              "nct_id": "NCT02106572",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 174",
+              "context": "Therapeutic Instillation of Mistletoe",
+              "url": "https://clinicaltrials.gov/study/NCT02106572"
+            },
+            {
+              "nct_id": "NCT02186574",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 184",
+              "context": "Tenofovir to Prevent HBV Reactivation",
+              "url": "https://clinicaltrials.gov/study/NCT02186574"
+            },
+            {
+              "nct_id": "NCT02201992",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 166",
+              "context": "Crizotinib in Treating Patients With Stage IB-IIIA Non-small Cell Lung Cancer That Has Been Removed by Surgery and ALK Fusion Mutations (An ALCHEMIST Treatment Trial)",
+              "url": "https://clinicaltrials.gov/study/NCT02201992"
+            }
+          ]
+        },
+        {
+          "bin": "261\u2013414",
+          "bin_start": 261,
+          "bin_end": 415,
+          "trial_count": 883,
+          "contributing_trial_count": 883,
+          "citations": [
+            {
+              "nct_id": "NCT00477906",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 387",
+              "context": "M-Vax + Low Dose Interleukin-2 Versus Placebo Vaccine in Metastatic Melanoma in Patients With Stage IV Melanoma",
+              "url": "https://clinicaltrials.gov/study/NCT00477906"
+            },
+            {
+              "nct_id": "NCT01907529",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 300",
+              "context": "A Trail of Neoadjuvant Endostar in Combination With Chemotherapy in Breast Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT01907529"
+            },
+            {
+              "nct_id": "NCT02121405",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 350",
+              "context": "Randomized Trial of Primary Surgery Followed Selective Radiochemotherapy for Rectal Cancer With MRI Negative CRM",
+              "url": "https://clinicaltrials.gov/study/NCT02121405"
+            }
+          ]
+        },
+        {
+          "bin": "415\u2013659",
+          "bin_start": 415,
+          "bin_end": 660,
+          "trial_count": 893,
+          "contributing_trial_count": 893,
+          "citations": [
+            {
+              "nct_id": "NCT01064466",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 600",
+              "context": "Pharmacogenomics ANDA SNP Clinical Study - Etoposide and Single Nucleotide Polymorphisms",
+              "url": "https://clinicaltrials.gov/study/NCT01064466"
+            },
+            {
+              "nct_id": "NCT02129699",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 595",
+              "context": "Survival imProvement in Lung cancEr iNduced by DenOsUmab theRapy",
+              "url": "https://clinicaltrials.gov/study/NCT02129699"
+            },
+            {
+              "nct_id": "NCT02149784",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 480",
+              "context": "Effectiveness Study of Resection of Primary Tumor in Stage IV Colorectal Cancer Patients",
+              "url": "https://clinicaltrials.gov/study/NCT02149784"
+            }
+          ]
+        },
+        {
+          "bin": "660\u20131,049",
+          "bin_start": 660,
+          "bin_end": 1050,
+          "trial_count": 484,
+          "contributing_trial_count": 484,
+          "citations": [
+            {
+              "nct_id": "NCT02073682",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 1046",
+              "context": "Cancer Venous Thromboembolism (VTE)",
+              "url": "https://clinicaltrials.gov/study/NCT02073682"
+            },
+            {
+              "nct_id": "NCT02252172",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 737",
+              "context": "Study Comparing Daratumumab, Lenalidomide, and Dexamethasone With Lenalidomide and Dexamethasone in Participants With Previously Untreated Multiple Myeloma",
+              "url": "https://clinicaltrials.gov/study/NCT02252172"
+            },
+            {
+              "nct_id": "NCT02272413",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 671",
+              "context": "Phase III Trial BI 695502 Plus Chemotherapy vs. Avastin\u00ae Plus Chemotherapy in Patients With Lung Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT02272413"
+            }
+          ]
+        },
+        {
+          "bin": "1,050\u20131,669",
+          "bin_start": 1050,
+          "bin_end": 1670,
+          "trial_count": 169,
+          "contributing_trial_count": 169,
+          "citations": [
+            {
+              "nct_id": "NCT02215265",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 1269",
+              "context": "Post-operative Adjuvant Treatment for HPV-positive Tumours (PATHOS)",
+              "url": "https://clinicaltrials.gov/study/NCT02215265"
+            },
+            {
+              "nct_id": "NCT02273375",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 1415",
+              "context": "Double Blind Placebo Controlled Controlled Study of Adjuvant MEDI4736 In Completely Resected NSCLC",
+              "url": "https://clinicaltrials.gov/study/NCT02273375"
+            },
+            {
+              "nct_id": "NCT02366143",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 1202",
+              "context": "A Study of Atezolizumab in Combination With Carboplatin Plus (+) Paclitaxel With or Without Bevacizumab Compared With Carboplatin+Paclitaxel+Bevacizumab in Participants With Stage\u2026",
+              "url": "https://clinicaltrials.gov/study/NCT02366143"
+            }
+          ]
+        },
+        {
+          "bin": "1,670\u20132,654",
+          "bin_start": 1670,
+          "bin_end": 2655,
+          "trial_count": 57,
+          "contributing_trial_count": 57,
+          "citations": [
+            {
+              "nct_id": "NCT02497820",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 1800",
+              "context": "Finding the Best Dose of Aspirin to Prevent Lynch Syndrome Cancers",
+              "url": "https://clinicaltrials.gov/study/NCT02497820"
+            },
+            {
+              "nct_id": "NCT02716233",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 2044",
+              "context": "A French Protocol for the Treatment of Acute Lymphoblastic Leukemia (ALL) in Children and Adolescents",
+              "url": "https://clinicaltrials.gov/study/NCT02716233"
+            },
+            {
+              "nct_id": "NCT02777437",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 1960",
+              "context": "Laparoscopic Surgery VS Laparoscopic Surgery + Neoadjuvant Chemotherapy for T4 Tumor of the Colon Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT02777437"
+            }
+          ]
+        },
+        {
+          "bin": "2,655\u20134,221",
+          "bin_start": 2655,
+          "bin_end": 4222,
+          "trial_count": 23,
+          "contributing_trial_count": 23,
+          "citations": [
+            {
+              "nct_id": "NCT02416388",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 3100",
+              "context": "Study to Improve OS in 18 to 60 Year-old Patients, Comparing Daunorubicin Versus High Dose Idarubicin Induction Regimens, High Dose Versus Intermediate Dose Cytarabine\u2026",
+              "url": "https://clinicaltrials.gov/study/NCT02416388"
+            },
+            {
+              "nct_id": "NCT02474355",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 3017",
+              "context": "Real World Treatment Study of AZD9291 for Advanced/Metastatic EGFR T790M Mutation NSCLC",
+              "url": "https://clinicaltrials.gov/study/NCT02474355"
+            },
+            {
+              "nct_id": "NCT02477826",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 2747",
+              "context": "An Investigational Immuno-therapy Trial of Nivolumab, or Nivolumab Plus Ipilimumab, or Nivolumab Plus Platinum-doublet Chemotherapy, Compared to Platinum Doublet Chemotherapy in\u2026",
+              "url": "https://clinicaltrials.gov/study/NCT02477826"
+            }
+          ]
+        },
+        {
+          "bin": "4,222\u20136,713",
+          "bin_start": 4222,
+          "bin_end": 6714,
+          "trial_count": 14,
+          "contributing_trial_count": 14,
+          "citations": [
+            {
+              "nct_id": "NCT02513394",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 5796",
+              "context": "PALbociclib CoLlaborative Adjuvant Study",
+              "url": "https://clinicaltrials.gov/study/NCT02513394"
+            },
+            {
+              "nct_id": "NCT03155997",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 5637",
+              "context": "Endocrine Therapy With or Without Abemaciclib (LY2835219) Following Surgery in Participants With Breast Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT03155997"
+            },
+            {
+              "nct_id": "NCT03701334",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 5101",
+              "context": "A Trial to Evaluate Efficacy and Safety of Ribociclib With Endocrine Therapy as Adjuvant Treatment in Patients With HR+/HER2- Early Breast Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT03701334"
+            }
+          ]
+        },
+        {
+          "bin": "6,714\u201310,674",
+          "bin_start": 6714,
+          "bin_end": 10675,
+          "trial_count": 9,
+          "contributing_trial_count": 9,
+          "citations": [
+            {
+              "nct_id": "NCT03914625",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 6720",
+              "context": "A Study to Investigate Blinatumomab in Combination With Chemotherapy in Patients With Newly Diagnosed B-Lymphoblastic Leukemia",
+              "url": "https://clinicaltrials.gov/study/NCT03914625"
+            },
+            {
+              "nct_id": "NCT04422366",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 8000",
+              "context": "Evaluate the Efficacy, Immunogenicity and Safety of 9-valent HPV Recombinant Vaccine in Chinese Healthy Females",
+              "url": "https://clinicaltrials.gov/study/NCT04422366"
+            },
+            {
+              "nct_id": "NCT04537156",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 9327",
+              "context": "Efficacy, Immunogenicity and Safety Study of Recombinant Human Papillomavirus Vaccine(6,11,16,18,31,33,45,52,58 Type)(E.Coli)",
+              "url": "https://clinicaltrials.gov/study/NCT04537156"
+            }
+          ]
+        },
+        {
+          "bin": "10,675\u201316,973",
+          "bin_start": 10675,
+          "bin_end": 16974,
+          "trial_count": 6,
+          "contributing_trial_count": 6,
+          "citations": [
+            {
+              "nct_id": "NCT02804815",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 11000",
+              "context": "Add-Aspirin: A Trial Assessing the Effects of Aspirin on Disease Recurrence and Survival After Primary Therapy in Common Non Metastatic Solid Tumours",
+              "url": "https://clinicaltrials.gov/study/NCT02804815"
+            },
+            {
+              "nct_id": "NCT03872401",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 12301",
+              "context": "Effect of Evolocumab in Patients at High Cardiovascular Risk Without Prior Myocardial Infarction or Stroke",
+              "url": "https://clinicaltrials.gov/study/NCT03872401"
+            },
+            {
+              "nct_id": "NCT04646954",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 12000",
+              "context": "DNA Methylation Testing for the Screening of Uterine Cervical Lesion",
+              "url": "https://clinicaltrials.gov/study/NCT04646954"
+            }
+          ]
+        },
+        {
+          "bin": "16,974\u201326,989",
+          "bin_start": 16974,
+          "bin_end": 26990,
+          "trial_count": 1,
+          "contributing_trial_count": 1,
+          "citations": [
+            {
+              "nct_id": "NCT06041061",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 18000",
+              "context": "A Study to Evaluate the Efficacy, Safety, and Immunogenicity of SCT1000 in Healthy Women Aged 18-45 Years",
+              "url": "https://clinicaltrials.gov/study/NCT06041061"
+            }
+          ]
+        },
+        {
+          "bin": "26,990\u201342,916",
+          "bin_start": 26990,
+          "bin_end": 42917,
+          "trial_count": 0,
+          "contributing_trial_count": 0
+        },
+        {
+          "bin": "42,917\u201368,240",
+          "bin_start": 42917,
+          "bin_end": 68241,
+          "trial_count": 1,
+          "contributing_trial_count": 1,
+          "citations": [
+            {
+              "nct_id": "NCT04941300",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 55999",
+              "context": "ColoRectal Cancer Screening for Southern California Community Health Centers",
+              "url": "https://clinicaltrials.gov/study/NCT04941300"
+            }
+          ]
+        },
+        {
+          "bin": "68,241\u2013108,508",
+          "bin_start": 68241,
+          "bin_end": 108508,
+          "trial_count": 2,
+          "contributing_trial_count": 2,
+          "citations": [
+            {
+              "nct_id": "NCT03233191",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 108508",
+              "context": "Digital Tomosynthesis Mammography and Digital Mammography in Screening Patients for Breast Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT03233191"
+            },
+            {
+              "nct_id": "NCT06270355",
+              "field": "protocolSection.designModule.enrollmentInfo.count",
+              "excerpt": "Enrollment: 70000",
+              "context": "Stockholm Mammography Risk Stratified Trial",
+              "url": "https://clinicaltrials.gov/study/NCT06270355"
+            }
+          ]
+        }
+      ]
+    },
+    "meta": {
+      "interpretation": "The user wants to see how participant enrollment is distributed across Phase 3 cancer (oncology) trials \u2014 i.e. the shape of the enrollment-size distribution, not a count by category.",
+      "assumptions": [
+        "'Oncology' was searched as the condition term 'cancer', which the API expands across neoplasm MeSH terms.",
+        "Limited to trials starting in 2015 or later, so the picture reflects contemporary Phase 3 practice rather than the full historical registry.",
+        "Restricted to interventional studies, since observational records do not carry a phase.",
+        "Enrollment mixes actual and estimated participant counts as reported by sponsors.",
+        "Log-scaled bins are used because enrollment is heavily right-skewed (a few very large trials would otherwise flatten the distribution)."
+      ],
+      "filters_applied": {
+        "user": {},
+        "inferred": {
+          "Phase 3 oncology trials": {
+            "conditions": [
+              "cancer"
+            ],
+            "phases": [
+              "PHASE3"
+            ],
+            "study_types": [
+              "INTERVENTIONAL"
+            ],
+            "start_year_min": 2015
+          }
+        }
+      },
+      "counting_semantics": "Each trial falls in exactly one enrollment bin.",
+      "coverage": {
+        "strategy": "fetch_and_aggregate",
+        "total_matching": 5720,
+        "analyzed": 5000,
+        "truncated": true,
+        "per_cohort": [
+          {
+            "name": "Phase 3 oncology trials",
+            "total_matching": 5720,
+            "analyzed": 5000,
+            "truncated": true
+          }
+        ],
+        "records_missing_dimension": 0,
+        "records_missing_measure": 0,
+        "categories_omitted": 0
+      },
+      "measure": {
+        "id": "trial_count",
+        "label": "Number of Trials",
+        "unit": "trials"
+      },
+      "ctgov_requests": [
+        {
+          "query.cond": "cancer",
+          "filter.advanced": "AREA[Phase]PHASE3 AND AREA[StudyType]INTERVENTIONAL AND AREA[StartDate]RANGE[2015-01-01,MAX]",
+          "fields": "NCTId,BriefTitle,EnrollmentCount,EnrollmentType",
+          "pageSize": "1000",
+          "countTotal": "true"
+        },
+        {
+          "query.cond": "cancer",
+          "filter.advanced": "AREA[Phase]PHASE3 AND AREA[StudyType]INTERVENTIONAL AND AREA[StartDate]RANGE[2015-01-01,MAX]",
+          "fields": "NCTId,BriefTitle,EnrollmentCount,EnrollmentType",
+          "pageSize": "1000",
+          "pageToken": "ZVNj7o2Elu8o3lpwCsjyoLmtmpOQJJxpbfSl3fEW"
+        },
+        {
+          "query.cond": "cancer",
+          "filter.advanced": "AREA[Phase]PHASE3 AND AREA[StudyType]INTERVENTIONAL AND AREA[StartDate]RANGE[2015-01-01,MAX]",
+          "fields": "NCTId,BriefTitle,EnrollmentCount,EnrollmentType",
+          "pageSize": "1000",
+          "pageToken": "ZVNj7o2Elu8o3lpwCsjyoLmtmpOQJJxuZvis3fQckA"
+        },
+        {
+          "query.cond": "cancer",
+          "filter.advanced": "AREA[Phase]PHASE3 AND AREA[StudyType]INTERVENTIONAL AND AREA[StartDate]RANGE[2015-01-01,MAX]",
+          "fields": "NCTId,BriefTitle,EnrollmentCount,EnrollmentType",
+          "pageSize": "1000",
+          "pageToken": "ZVNj7o2Elu8o3lpwCsjyoLmtmpOQJJxtZPSl3PQZkA"
+        },
+        {
+          "query.cond": "cancer",
+          "filter.advanced": "AREA[Phase]PHASE3 AND AREA[StudyType]INTERVENTIONAL AND AREA[StartDate]RANGE[2015-01-01,MAX]",
+          "fields": "NCTId,BriefTitle,EnrollmentCount,EnrollmentType",
+          "pageSize": "1000",
+          "pageToken": "ZVNj7o2Elu8o3lpwCsjyoLmtmpOQJJxtbPGl1fAZkA"
+        }
+      ],
+      "warnings": [
+        "123 trials fell outside the plotted range and were excluded from the bins.",
+        "Analyzed 5,000 of 5,720 matching trials (retrieval cap). Figures describe the analyzed subset; raise options.max_studies or narrow the filters for full coverage."
+      ],
+      "source": {
+        "name": "ClinicalTrials.gov",
+        "api": "https://clinicaltrials.gov/data-api/api",
+        "api_version": "v2",
+        "retrieved_at": "2026-09-18T23:11:59.061723Z"
+      },
+      "generated_at": "2026-09-18T23:11:59.061728Z"
+    },
+    "plan": {
+      "interpretation": "The user wants to see how participant enrollment is distributed across Phase 3 cancer (oncology) trials \u2014 i.e. the shape of the enrollment-size distribution, not a count by category.",
+      "assumptions": [
+        "'Oncology' was searched as the condition term 'cancer', which the API expands across neoplasm MeSH terms.",
+        "Limited to trials starting in 2015 or later, so the picture reflects contemporary Phase 3 practice rather than the full historical registry.",
+        "Restricted to interventional studies, since observational records do not carry a phase.",
+        "Enrollment mixes actual and estimated participant counts as reported by sponsors.",
+        "Log-scaled bins are used because enrollment is heavily right-skewed (a few very large trials would otherwise flatten the distribution)."
+      ],
+      "retrieval": {
+        "cohorts": [
+          {
+            "name": "Phase 3 oncology trials",
+            "filters": {
+              "conditions": [
+                "cancer"
+              ],
+              "interventions": [],
+              "sponsors": [],
+              "terms": [],
+              "locations": [],
+              "phases": [
+                "PHASE3"
+              ],
+              "statuses": [],
+              "study_types": [
+                "INTERVENTIONAL"
+              ],
+              "intervention_types": [],
+              "sponsor_classes": [],
+              "countries": [],
+              "start_year_min": 2015
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "kind": "histogram",
+        "metric": "enrollment",
+        "bin_count": 25,
+        "log_scale": true
+      },
+      "visualization": {
+        "type": "histogram",
+        "title": "Distribution of Enrollment Size in Phase 3 Oncology Trials Started 2015-2025",
+        "subtitle": "Interventional Phase 3 trials with a cancer condition; log-scaled enrollment bins"
+      }
+    },
+    "citation_index": {
+      "NCT02326285": {
+        "title": "Induction Therapy With Intercalated Tyrosine Kinase Inhibitor (TKI) and Chemotherapy in NSCLC With Activating Epidermal Growth Factor Receptor (EGFR) Mutation in Stages II-IIIB",
+        "url": "https://clinicaltrials.gov/study/NCT02326285"
+      },
+      "NCT02539342": {
+        "title": "Caphosol Study: Prevention of Oral Mucositis in Children, Adolescents and Young Adults Receiving Chemotherapy",
+        "url": "https://clinicaltrials.gov/study/NCT02539342"
+      },
+      "NCT03233828": {
+        "title": "Pre-Treatment of Highly Suspicious Pigmented Skin Lesions With Interleukin-2",
+        "url": "https://clinicaltrials.gov/study/NCT03233828"
+      },
+      "NCT02398994": {
+        "title": "A Multicentre randomiSed Controlled TRial of IntraVEnous Immunoglobulin Versus Standard Therapy for Transverse Myelitis",
+        "url": "https://clinicaltrials.gov/study/NCT02398994"
+      },
+      "NCT02417129": {
+        "title": "BI 695500 vs Rituxan First Line Treatment in Patients With Low Tumor Burden Follicular Lymphoma",
+        "url": "https://clinicaltrials.gov/study/NCT02417129"
+      },
+      "NCT02425878": {
+        "title": "Ulipristal Acetate 10 mg and Asisted Reproduction",
+        "url": "https://clinicaltrials.gov/study/NCT02425878"
+      },
+      "NCT02366663": {
+        "title": "BEAM vs. 90-Yttrium Ibritumomab Tiuxetan (Zevalin\u00ae)/BEAM With ASCT for Relapsed DLBCL",
+        "url": "https://clinicaltrials.gov/study/NCT02366663"
+      },
+      "NCT02473848": {
+        "title": "Ingenol Mebutate Gel 0.05% in Kidney Transplant Recipients With Actinic Keratoses",
+        "url": "https://clinicaltrials.gov/study/NCT02473848"
+      },
+      "NCT04485104": {
+        "title": "Assessment of Adjunctive Cannabidiol Oral Solution (GWP42003-P) in Children With Tuberous Sclerosis Complex (TSC), Dravet Syndrome (DS), or Lennox-Gastaut Syndrome (LGS) Who Experience Inadequately-controlled Seizures",
+        "url": "https://clinicaltrials.gov/study/NCT04485104"
+      },
+      "NCT02419118": {
+        "title": "\"Monoclonal Antibodies for Treatment of Multiple Myeloma. Emphasis on the CD38 Antibody Daratumumab \"",
+        "url": "https://clinicaltrials.gov/study/NCT02419118"
+      },
+      "NCT02465112": {
+        "title": "Metabolic Radiotherapy After Complete Resection of Liver Metastases in Patient With Digestive Neuroendocrine Tumor",
+        "url": "https://clinicaltrials.gov/study/NCT02465112"
+      },
+      "NCT02805452": {
+        "title": "Solifenacin Succinate for Treatment of Urinary Toxicity Occurring During Radiotherapy of Prostatic Cancer",
+        "url": "https://clinicaltrials.gov/study/NCT02805452"
+      },
+      "NCT02009423": {
+        "title": "Masitinib in Patients With Localized, Primary GIST After Complete Surgery and With High Risk of Recurrence",
+        "url": "https://clinicaltrials.gov/study/NCT02009423"
+      },
+      "NCT02115386": {
+        "title": "Trial to Evaluate the Improvement of Chronic Low-grade AEs in Patients With Ph+ CML With Optimal Response to Imatinib When Switched to Nilotinib",
+        "url": "https://clinicaltrials.gov/study/NCT02115386"
+      },
+      "NCT02236936": {
+        "title": "Parenteral Nutrition for Patients Treated for Locally Advanced Inoperable Tumors of the Head and Neck",
+        "url": "https://clinicaltrials.gov/study/NCT02236936"
+      },
+      "NCT02319200": {
+        "title": "Primary Prevention Hepatocellular Carcinoma by Metformin",
+        "url": "https://clinicaltrials.gov/study/NCT02319200"
+      },
+      "NCT02516696": {
+        "title": "BiRd vs. Rd as Initial Therapy in Multiple Myeloma",
+        "url": "https://clinicaltrials.gov/study/NCT02516696"
+      },
+      "NCT02591017": {
+        "title": "Comparison of Oral Morphine Versus Nasal Ketamine Spray With Chitosan in Cancer Pain Outpatients",
+        "url": "https://clinicaltrials.gov/study/NCT02591017"
+      },
+      "NCT02130323": {
+        "title": "Topical Imiquimod vs. LEEP for Women With Carcinoma In-situ of the Cervix",
+        "url": "https://clinicaltrials.gov/study/NCT02130323"
+      },
+      "NCT02288897": {
+        "title": "PV-10 vs Chemotherapy or Oncolytic Viral Therapy for Treatment of Locally Advanced Cutaneous Melanoma",
+        "url": "https://clinicaltrials.gov/study/NCT02288897"
+      },
+      "NCT02340728": {
+        "title": "Endoscopic Biliary Co-axial Stent Placement Plus/Minus Use of Radiofrequency Ablation (RFA) for Clearance of Occluded Self Expandable Metal Stents (SEMS) in Patients With Distal Biliary Obstruction From Unresectable Biliary-pancreatic Malignancies",
+        "url": "https://clinicaltrials.gov/study/NCT02340728"
+      },
+      "NCT01404156": {
+        "title": "Preoperative Chemotherapy vs. Chemoradiation in Esophageal / GEJ Adenocarcinoma",
+        "url": "https://clinicaltrials.gov/study/NCT01404156"
+      },
+      "NCT02020928": {
+        "title": "Laser Therapy Prevents Mucositis Oral in Chemotherapy for Bone Marrow Transplantation?",
+        "url": "https://clinicaltrials.gov/study/NCT02020928"
+      },
+      "NCT02203812": {
+        "title": "Effect of Probiotic Lozenge on Gingivitis and Periodontitis",
+        "url": "https://clinicaltrials.gov/study/NCT02203812"
+      },
+      "NCT01980875": {
+        "title": "Efficacy and Safety of Idelalisib in Combination With Obinutuzumab Compared to Chlorambucil in Combination With Obinutuzumab for Previously Untreated Chronic Lymphocytic Leukemia",
+        "url": "https://clinicaltrials.gov/study/NCT01980875"
+      },
+      "NCT02195232": {
+        "title": "Cancer Associated Thrombosis and Isoquercetin (CATIQ)",
+        "url": "https://clinicaltrials.gov/study/NCT02195232"
+      },
+      "NCT02240017": {
+        "title": "A Study Evaluating Chemotherapy With Fractionated Cisplatin/Gemcitabine Versus Carboplatin/Gemcitabine in the Treatment of Advanced or Metastatic Urothelial Cancer With Impaired Renal Function.",
+        "url": "https://clinicaltrials.gov/study/NCT02240017"
+      },
+      "NCT01905046": {
+        "title": "Metformin Hydrochloride in Preventing Breast Cancer in Patients With Atypical Hyperplasia or In Situ Breast Cancer",
+        "url": "https://clinicaltrials.gov/study/NCT01905046"
+      },
+      "NCT02059499": {
+        "title": "Imiquimod, Fluorouracil, or Observation in Treating HIV-Positive Patients With High-Grade Anal Squamous Skin Lesions",
+        "url": "https://clinicaltrials.gov/study/NCT02059499"
+      },
+      "NCT02251392": {
+        "title": "Evaluation of Therapeutic Efficacy in Use of Chamomilla Gel, Chamomilla Infuse and Urea in Radiodermatitis",
+        "url": "https://clinicaltrials.gov/study/NCT02251392"
+      },
+      "NCT01394679": {
+        "title": "A Phase 3 Study of 99mTC-EC-DG SPECT/CT Versus PET/CT in Lung Cancer",
+        "url": "https://clinicaltrials.gov/study/NCT01394679"
+      },
+      "NCT01951469": {
+        "title": "Gefitinib With or Without Chemotherapy in Brain Metastases From Non-small Cell Lung Cancer",
+        "url": "https://clinicaltrials.gov/study/NCT01951469"
+      },
+      "NCT01951482": {
+        "title": "Pemetrexed/Platinum With or Without Bevacizumab in Brain Metastases From Patients With EGFR/ALK Negative Non-Squamous Non-small Cell Lung Cancer",
+        "url": "https://clinicaltrials.gov/study/NCT01951482"
+      },
+      "NCT02106572": {
+        "title": "Therapeutic Instillation of Mistletoe",
+        "url": "https://clinicaltrials.gov/study/NCT02106572"
+      },
+      "NCT02186574": {
+        "title": "Tenofovir to Prevent HBV Reactivation",
+        "url": "https://clinicaltrials.gov/study/NCT02186574"
+      },
+      "NCT02201992": {
+        "title": "Crizotinib in Treating Patients With Stage IB-IIIA Non-small Cell Lung Cancer That Has Been Removed by Surgery and ALK Fusion Mutations (An ALCHEMIST Treatment Trial)",
+        "url": "https://clinicaltrials.gov/study/NCT02201992"
+      },
+      "NCT00477906": {
+        "title": "M-Vax + Low Dose Interleukin-2 Versus Placebo Vaccine in Metastatic Melanoma in Patients With Stage IV Melanoma",
+        "url": "https://clinicaltrials.gov/study/NCT00477906"
+      },
+      "NCT01907529": {
+        "title": "A Trail of Neoadjuvant Endostar in Combination With Chemotherapy in Breast Cancer",
+        "url": "https://clinicaltrials.gov/study/NCT01907529"
+      },
+      "NCT02121405": {
+        "title": "Randomized Trial of Primary Surgery Followed Selective Radiochemotherapy for Rectal Cancer With MRI Negative CRM",
+        "url": "https://clinicaltrials.gov/study/NCT02121405"
+      },
+      "NCT01064466": {
+        "title": "Pharmacogenomics ANDA SNP Clinical Study - Etoposide and Single Nucleotide Polymorphisms",
+        "url": "https://clinicaltrials.gov/study/NCT01064466"
+      },
+      "NCT02129699": {
+        "title": "Survival imProvement in Lung cancEr iNduced by DenOsUmab theRapy",
+        "url": "https://clinicaltrials.gov/study/NCT02129699"
+      },
+      "NCT02149784": {
+        "title": "Effectiveness Study of Resection of Primary Tumor in Stage IV Colorectal Cancer Patients",
+        "url": "https://clinicaltrials.gov/study/NCT02149784"
+      },
+      "NCT02073682": {
+        "title": "Cancer Venous Thromboembolism (VTE)",
+        "url": "https://clinicaltrials.gov/study/NCT02073682"
+      },
+      "NCT02252172": {
+        "title": "Study Comparing Daratumumab, Lenalidomide, and Dexamethasone With Lenalidomide and Dexamethasone in Participants With Previously Untreated Multiple Myeloma",
+        "url": "https://clinicaltrials.gov/study/NCT02252172"
+      },
+      "NCT02272413": {
+        "title": "Phase III Trial BI 695502 Plus Chemotherapy vs. Avastin\u00ae Plus Chemotherapy in Patients With Lung Cancer",
+        "url": "https://clinicaltrials.gov/study/NCT02272413"
+      },
+      "NCT02215265": {
+        "title": "Post-operative Adjuvant Treatment for HPV-positive Tumours (PATHOS)",
+        "url": "https://clinicaltrials.gov/study/NCT02215265"
+      },
+      "NCT02273375": {
+        "title": "Double Blind Placebo Controlled Controlled Study of Adjuvant MEDI4736 In Completely Resected NSCLC",
+        "url": "https://clinicaltrials.gov/study/NCT02273375"
+      },
+      "NCT02366143": {
+        "title": "A Study of Atezolizumab in Combination With Carboplatin Plus (+) Paclitaxel With or Without Bevacizumab Compared With Carboplatin+Paclitaxel+Bevacizumab in Participants With Stage IV Non-Squamous Non-Small Cell Lung Cancer (NSCLC)",
+        "url": "https://clinicaltrials.gov/study/NCT02366143"
+      },
+      "NCT02497820": {
+        "title": "Finding the Best Dose of Aspirin to Prevent Lynch Syndrome Cancers",
+        "url": "https://clinicaltrials.gov/study/NCT02497820"
+      },
+      "NCT02716233": {
+        "title": "A French Protocol for the Treatment of Acute Lymphoblastic Leukemia (ALL) in Children and Adolescents",
+        "url": "https://clinicaltrials.gov/study/NCT02716233"
+      },
+      "NCT02777437": {
+        "title": "Laparoscopic Surgery VS Laparoscopic Surgery + Neoadjuvant Chemotherapy for T4 Tumor of the Colon Cancer",
+        "url": "https://clinicaltrials.gov/study/NCT02777437"
+      },
+      "NCT02416388": {
+        "title": "Study to Improve OS in 18 to 60 Year-old Patients, Comparing Daunorubicin Versus High Dose Idarubicin Induction Regimens, High Dose Versus Intermediate Dose Cytarabine Consolidation Regimens, and Standard Versus MMF Prophylaxis of GvHD in Allografted Patients in First CR",
+        "url": "https://clinicaltrials.gov/study/NCT02416388"
+      },
+      "NCT02474355": {
+        "title": "Real World Treatment Study of AZD9291 for Advanced/Metastatic EGFR T790M Mutation NSCLC",
+        "url": "https://clinicaltrials.gov/study/NCT02474355"
+      },
+      "NCT02477826": {
+        "title": "An Investigational Immuno-therapy Trial of Nivolumab, or Nivolumab Plus Ipilimumab, or Nivolumab Plus Platinum-doublet Chemotherapy, Compared to Platinum Doublet Chemotherapy in Patients With Stage IV Non-Small Cell Lung Cancer (NSCLC)",
+        "url": "https://clinicaltrials.gov/study/NCT02477826"
+      },
+      "NCT02513394": {
+        "title": "PALbociclib CoLlaborative Adjuvant Study",
+        "url": "https://clinicaltrials.gov/study/NCT02513394"
+      },
+      "NCT03155997": {
+        "title": "Endocrine Therapy With or Without Abemaciclib (LY2835219) Following Surgery in Participants With Breast Cancer",
+        "url": "https://clinicaltrials.gov/study/NCT03155997"
+      },
+      "NCT03701334": {
+        "title": "A Trial to Evaluate Efficacy and Safety of Ribociclib With Endocrine Therapy as Adjuvant Treatment in Patients With HR+/HER2- Early Breast Cancer",
+        "url": "https://clinicaltrials.gov/study/NCT03701334"
+      },
+      "NCT03914625": {
+        "title": "A Study to Investigate Blinatumomab in Combination With Chemotherapy in Patients With Newly Diagnosed B-Lymphoblastic Leukemia",
+        "url": "https://clinicaltrials.gov/study/NCT03914625"
+      },
+      "NCT04422366": {
+        "title": "Evaluate the Efficacy, Immunogenicity and Safety of 9-valent HPV Recombinant Vaccine in Chinese Healthy Females",
+        "url": "https://clinicaltrials.gov/study/NCT04422366"
+      },
+      "NCT04537156": {
+        "title": "Efficacy, Immunogenicity and Safety Study of Recombinant Human Papillomavirus Vaccine(6,11,16,18,31,33,45,52,58 Type)(E.Coli)",
+        "url": "https://clinicaltrials.gov/study/NCT04537156"
+      },
+      "NCT02804815": {
+        "title": "Add-Aspirin: A Trial Assessing the Effects of Aspirin on Disease Recurrence and Survival After Primary Therapy in Common Non Metastatic Solid Tumours",
+        "url": "https://clinicaltrials.gov/study/NCT02804815"
+      },
+      "NCT03872401": {
+        "title": "Effect of Evolocumab in Patients at High Cardiovascular Risk Without Prior Myocardial Infarction or Stroke",
+        "url": "https://clinicaltrials.gov/study/NCT03872401"
+      },
+      "NCT04646954": {
+        "title": "DNA Methylation Testing for the Screening of Uterine Cervical Lesion",
+        "url": "https://clinicaltrials.gov/study/NCT04646954"
+      },
+      "NCT06041061": {
+        "title": "A Study to Evaluate the Efficacy, Safety, and Immunogenicity of SCT1000 in Healthy Women Aged 18-45 Years",
+        "url": "https://clinicaltrials.gov/study/NCT06041061"
+      },
+      "NCT04941300": {
+        "title": "ColoRectal Cancer Screening for Southern California Community Health Centers",
+        "url": "https://clinicaltrials.gov/study/NCT04941300"
+      },
+      "NCT03233191": {
+        "title": "Digital Tomosynthesis Mammography and Digital Mammography in Screening Patients for Breast Cancer",
+        "url": "https://clinicaltrials.gov/study/NCT03233191"
+      },
+      "NCT06270355": {
+        "title": "Stockholm Mammography Risk Stratified Trial",
+        "url": "https://clinicaltrials.gov/study/NCT06270355"
+      }
+    }
+  }
+}

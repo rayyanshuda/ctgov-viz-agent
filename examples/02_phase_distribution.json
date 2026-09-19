@@ -1,0 +1,392 @@
+{
+  "request": {
+    "query": "How are melanoma trials distributed across phases?"
+  },
+  "response": {
+    "status": "ok",
+    "question": "How are melanoma trials distributed across phases?",
+    "visualization": {
+      "type": "bar_chart",
+      "title": "Melanoma Interventional Trials by Phase, 2015\u20132025",
+      "subtitle": "Trial counts per registered phase; trials spanning two phases count in both",
+      "encoding": {
+        "x": {
+          "field": "phase",
+          "type": "ordinal",
+          "title": "Trial Phase"
+        },
+        "y": {
+          "field": "trial_count",
+          "type": "quantitative",
+          "title": "Number of Trials",
+          "unit": "trials"
+        }
+      },
+      "data": [
+        {
+          "phase": "Early Phase 1",
+          "trial_count": 45,
+          "share_pct": 2.18,
+          "contributing_trial_count": 45,
+          "citations": [
+            {
+              "nct_id": "NCT02320305",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "EARLY_PHASE1",
+              "context": "MART-1 Antigen With or Without TLR4 Agonist GLA-SE in Treating Patients With Stage II-IV Melanoma That Has Been Removed by Surgery",
+              "url": "https://clinicaltrials.gov/study/NCT02320305"
+            },
+            {
+              "nct_id": "NCT02382549",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "EARLY_PHASE1",
+              "context": "A Clinical Trial to Evaluate a Melanoma Helper Peptide Vaccine Plus Dabrafenib and Trametinib",
+              "url": "https://clinicaltrials.gov/study/NCT02382549"
+            },
+            {
+              "nct_id": "NCT02591654",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "EARLY_PHASE1",
+              "context": "MRI and PET to Assess Pembrolizumab Response",
+              "url": "https://clinicaltrials.gov/study/NCT02591654"
+            }
+          ]
+        },
+        {
+          "phase": "Phase 1",
+          "trial_count": 779,
+          "share_pct": 37.72,
+          "contributing_trial_count": 779,
+          "citations": [
+            {
+              "nct_id": "NCT01740557",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "PHASE1",
+              "context": "Genetically Modified Therapeutic Autologous Lymphocytes Followed by Aldesleukin in Treating Patients With Stage III or Metastatic Melanoma",
+              "url": "https://clinicaltrials.gov/study/NCT01740557"
+            },
+            {
+              "nct_id": "NCT01843738",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "PHASE1",
+              "context": "Radiation Use During Vemurafenib Treatment",
+              "url": "https://clinicaltrials.gov/study/NCT01843738"
+            },
+            {
+              "nct_id": "NCT01904123",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "PHASE1",
+              "context": "STAT3 Inhibitor WP1066 in Treating Patients With Recurrent Malignant Glioma or Progressive Metastatic Melanoma in the Brain",
+              "url": "https://clinicaltrials.gov/study/NCT01904123"
+            }
+          ]
+        },
+        {
+          "phase": "Phase 2",
+          "trial_count": 801,
+          "share_pct": 38.79,
+          "contributing_trial_count": 801,
+          "citations": [
+            {
+              "nct_id": "NCT01740557",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "PHASE2",
+              "context": "Genetically Modified Therapeutic Autologous Lymphocytes Followed by Aldesleukin in Treating Patients With Stage III or Metastatic Melanoma",
+              "url": "https://clinicaltrials.gov/study/NCT01740557"
+            },
+            {
+              "nct_id": "NCT01861938",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "PHASE2",
+              "context": "Modified Melanoma Vaccine for High Risk or Low Residual Disease Patients",
+              "url": "https://clinicaltrials.gov/study/NCT01861938"
+            },
+            {
+              "nct_id": "NCT01988831",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "PHASE2",
+              "context": "Efficacy of Propranolol Treatment to Prevent Melanoma Progression",
+              "url": "https://clinicaltrials.gov/study/NCT01988831"
+            }
+          ]
+        },
+        {
+          "phase": "Phase 3",
+          "trial_count": 112,
+          "share_pct": 5.42,
+          "contributing_trial_count": 112,
+          "citations": [
+            {
+              "nct_id": "NCT00477906",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "PHASE3",
+              "context": "M-Vax + Low Dose Interleukin-2 Versus Placebo Vaccine in Metastatic Melanoma in Patients With Stage IV Melanoma",
+              "url": "https://clinicaltrials.gov/study/NCT00477906"
+            },
+            {
+              "nct_id": "NCT01861938",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "PHASE3",
+              "context": "Modified Melanoma Vaccine for High Risk or Low Residual Disease Patients",
+              "url": "https://clinicaltrials.gov/study/NCT01861938"
+            },
+            {
+              "nct_id": "NCT02166788",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "PHASE3",
+              "context": "Evaluation of Groin Lymphadenectomy Extent For Metastatic Melanoma",
+              "url": "https://clinicaltrials.gov/study/NCT02166788"
+            }
+          ]
+        },
+        {
+          "phase": "Phase 4",
+          "trial_count": 21,
+          "share_pct": 1.02,
+          "contributing_trial_count": 21,
+          "citations": [
+            {
+              "nct_id": "NCT02379000",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "PHASE4",
+              "context": "TTT Versus TTT and Triamcinolone to Decrease Exudation in Choroidal Melanoma After Proton Beam Therapy",
+              "url": "https://clinicaltrials.gov/study/NCT02379000"
+            },
+            {
+              "nct_id": "NCT02451488",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "PHASE4",
+              "context": "Neoadjuvant Granulocyte-Macrophage Colony-Stimulating Factor (GM-CSF) in Cutaneous Stage L-lll Melanoma",
+              "url": "https://clinicaltrials.gov/study/NCT02451488"
+            },
+            {
+              "nct_id": "NCT02626065",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "PHASE4",
+              "context": "Immune Modulation Study in Patients With Metastatic Melanoma Treated With Anti-PD1 Monoclonal Antibodies",
+              "url": "https://clinicaltrials.gov/study/NCT02626065"
+            }
+          ]
+        },
+        {
+          "phase": "Not Applicable",
+          "trial_count": 307,
+          "share_pct": 14.87,
+          "contributing_trial_count": 307,
+          "citations": [
+            {
+              "nct_id": "NCT01662713",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "NA",
+              "context": "Optical Frequency Domain Imaging for Non-melanoma Skin Cancers",
+              "url": "https://clinicaltrials.gov/study/NCT01662713"
+            },
+            {
+              "nct_id": "NCT02306512",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "NA",
+              "context": "Mohs and Immunofluorescence for Malignant Melanoma In Situ",
+              "url": "https://clinicaltrials.gov/study/NCT02306512"
+            },
+            {
+              "nct_id": "NCT02309632",
+              "field": "protocolSection.designModule.phases",
+              "excerpt": "NA",
+              "context": "Pancreatic Cancer Screening of High-Risk Individuals in Arkansas",
+              "url": "https://clinicaltrials.gov/study/NCT02309632"
+            }
+          ]
+        }
+      ]
+    },
+    "meta": {
+      "interpretation": "The user wants the phase breakdown of melanoma clinical trials \u2014 how many trials fall into Early Phase 1, Phase 1, 2, 3, 4 (and phase-not-applicable studies).",
+      "assumptions": [
+        "Restricted to interventional studies, since observational trials carry no phase.",
+        "Limited to trials starting from 2015 onward to reflect the current landscape; can be widened to all years on request.",
+        "'melanoma' passed as a condition term, letting the registry expand synonyms and MeSH variants (includes uveal/mucosal melanoma where indexed).",
+        "Phase-not-applicable trials are kept as their own bar, since they are a real part of the distribution.",
+        "Trials registered across two phases (e.g. Phase 1/2) are counted in each phase, so bars may sum to more than the trial total."
+      ],
+      "filters_applied": {
+        "user": {},
+        "inferred": {
+          "Melanoma trials": {
+            "conditions": [
+              "melanoma"
+            ],
+            "study_types": [
+              "INTERVENTIONAL"
+            ],
+            "start_year_min": 2015
+          }
+        }
+      },
+      "counting_semantics": "A trial may report several values for trial phase, so it is counted once per value. Bucket values therefore sum to more than the number of trials.",
+      "coverage": {
+        "strategy": "fetch_and_aggregate",
+        "total_matching": 1757,
+        "analyzed": 1757,
+        "truncated": false,
+        "per_cohort": [
+          {
+            "name": "Melanoma trials",
+            "total_matching": 1757,
+            "analyzed": 1757,
+            "truncated": false
+          }
+        ],
+        "records_missing_dimension": 0,
+        "records_missing_measure": 0,
+        "categories_omitted": 0
+      },
+      "measure": {
+        "id": "trial_count",
+        "label": "Number of Trials",
+        "unit": "trials"
+      },
+      "sort": {
+        "by": "category",
+        "order": "asc"
+      },
+      "ctgov_requests": [
+        {
+          "query.cond": "melanoma",
+          "filter.advanced": "AREA[StudyType]INTERVENTIONAL AND AREA[StartDate]RANGE[2015-01-01,MAX]",
+          "fields": "NCTId,BriefTitle,Phase",
+          "pageSize": "1000",
+          "countTotal": "true"
+        },
+        {
+          "query.cond": "melanoma",
+          "filter.advanced": "AREA[StudyType]INTERVENTIONAL AND AREA[StartDate]RANGE[2015-01-01,MAX]",
+          "fields": "NCTId,BriefTitle,Phase",
+          "pageSize": "1000",
+          "pageToken": "ZVNj7o2Elu8o3lpwCsjyoLmtmpOQJJxtZvSl1fcakA"
+        }
+      ],
+      "warnings": [],
+      "source": {
+        "name": "ClinicalTrials.gov",
+        "api": "https://clinicaltrials.gov/data-api/api",
+        "api_version": "v2",
+        "retrieved_at": "2026-09-18T23:10:20.088306Z"
+      },
+      "generated_at": "2026-09-18T23:10:20.088312Z"
+    },
+    "plan": {
+      "interpretation": "The user wants the phase breakdown of melanoma clinical trials \u2014 how many trials fall into Early Phase 1, Phase 1, 2, 3, 4 (and phase-not-applicable studies).",
+      "assumptions": [
+        "Restricted to interventional studies, since observational trials carry no phase.",
+        "Limited to trials starting from 2015 onward to reflect the current landscape; can be widened to all years on request.",
+        "'melanoma' passed as a condition term, letting the registry expand synonyms and MeSH variants (includes uveal/mucosal melanoma where indexed).",
+        "Phase-not-applicable trials are kept as their own bar, since they are a real part of the distribution.",
+        "Trials registered across two phases (e.g. Phase 1/2) are counted in each phase, so bars may sum to more than the trial total."
+      ],
+      "retrieval": {
+        "cohorts": [
+          {
+            "name": "Melanoma trials",
+            "filters": {
+              "conditions": [
+                "melanoma"
+              ],
+              "interventions": [],
+              "sponsors": [],
+              "terms": [],
+              "locations": [],
+              "phases": [],
+              "statuses": [],
+              "study_types": [
+                "INTERVENTIONAL"
+              ],
+              "intervention_types": [],
+              "sponsor_classes": [],
+              "countries": [],
+              "start_year_min": 2015
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "kind": "group_by",
+        "dimension": "phase",
+        "measure": "trial_count",
+        "sort_by": "category",
+        "sort_order": "asc",
+        "include_unknown": false
+      },
+      "visualization": {
+        "type": "bar_chart",
+        "title": "Melanoma Interventional Trials by Phase, 2015\u20132025",
+        "subtitle": "Trial counts per registered phase; trials spanning two phases count in both"
+      }
+    },
+    "citation_index": {
+      "NCT02320305": {
+        "title": "MART-1 Antigen With or Without TLR4 Agonist GLA-SE in Treating Patients With Stage II-IV Melanoma That Has Been Removed by Surgery",
+        "url": "https://clinicaltrials.gov/study/NCT02320305"
+      },
+      "NCT02382549": {
+        "title": "A Clinical Trial to Evaluate a Melanoma Helper Peptide Vaccine Plus Dabrafenib and Trametinib",
+        "url": "https://clinicaltrials.gov/study/NCT02382549"
+      },
+      "NCT02591654": {
+        "title": "MRI and PET to Assess Pembrolizumab Response",
+        "url": "https://clinicaltrials.gov/study/NCT02591654"
+      },
+      "NCT01740557": {
+        "title": "Genetically Modified Therapeutic Autologous Lymphocytes Followed by Aldesleukin in Treating Patients With Stage III or Metastatic Melanoma",
+        "url": "https://clinicaltrials.gov/study/NCT01740557"
+      },
+      "NCT01843738": {
+        "title": "Radiation Use During Vemurafenib Treatment",
+        "url": "https://clinicaltrials.gov/study/NCT01843738"
+      },
+      "NCT01904123": {
+        "title": "STAT3 Inhibitor WP1066 in Treating Patients With Recurrent Malignant Glioma or Progressive Metastatic Melanoma in the Brain",
+        "url": "https://clinicaltrials.gov/study/NCT01904123"
+      },
+      "NCT01861938": {
+        "title": "Modified Melanoma Vaccine for High Risk or Low Residual Disease Patients",
+        "url": "https://clinicaltrials.gov/study/NCT01861938"
+      },
+      "NCT01988831": {
+        "title": "Efficacy of Propranolol Treatment to Prevent Melanoma Progression",
+        "url": "https://clinicaltrials.gov/study/NCT01988831"
+      },
+      "NCT00477906": {
+        "title": "M-Vax + Low Dose Interleukin-2 Versus Placebo Vaccine in Metastatic Melanoma in Patients With Stage IV Melanoma",
+        "url": "https://clinicaltrials.gov/study/NCT00477906"
+      },
+      "NCT02166788": {
+        "title": "Evaluation of Groin Lymphadenectomy Extent For Metastatic Melanoma",
+        "url": "https://clinicaltrials.gov/study/NCT02166788"
+      },
+      "NCT02379000": {
+        "title": "TTT Versus TTT and Triamcinolone to Decrease Exudation in Choroidal Melanoma After Proton Beam Therapy",
+        "url": "https://clinicaltrials.gov/study/NCT02379000"
+      },
+      "NCT02451488": {
+        "title": "Neoadjuvant Granulocyte-Macrophage Colony-Stimulating Factor (GM-CSF) in Cutaneous Stage L-lll Melanoma",
+        "url": "https://clinicaltrials.gov/study/NCT02451488"
+      },
+      "NCT02626065": {
+        "title": "Immune Modulation Study in Patients With Metastatic Melanoma Treated With Anti-PD1 Monoclonal Antibodies",
+        "url": "https://clinicaltrials.gov/study/NCT02626065"
+      },
+      "NCT01662713": {
+        "title": "Optical Frequency Domain Imaging for Non-melanoma Skin Cancers",
+        "url": "https://clinicaltrials.gov/study/NCT01662713"
+      },
+      "NCT02306512": {
+        "title": "Mohs and Immunofluorescence for Malignant Melanoma In Situ",
+        "url": "https://clinicaltrials.gov/study/NCT02306512"
+      },
+      "NCT02309632": {
+        "title": "Pancreatic Cancer Screening of High-Risk Individuals in Arkansas",
+        "url": "https://clinicaltrials.gov/study/NCT02309632"
+      }
+    }
+  }
+}

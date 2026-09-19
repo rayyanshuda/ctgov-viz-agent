@@ -1,0 +1,16 @@
+# Secrets — never commit, never ship in the submission zip
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# Runtime cache of ClinicalTrials.gov responses
+.cache/
+
+# Kept in the submission zip, deliberately not published to GitHub
+docs/
+assignment.md

@@ -1,0 +1,1341 @@
+{
+  "request": {
+    "query": "Which countries have the most recruiting trials for type 2 diabetes?"
+  },
+  "response": {
+    "status": "ok",
+    "question": "Which countries have the most recruiting trials for type 2 diabetes?",
+    "visualization": {
+      "type": "geo_map",
+      "title": "Countries with the Most Currently Recruiting Type 2 Diabetes Trials",
+      "subtitle": "Trial counts by country of study site; multi-country trials counted once per country (top 30 countries)",
+      "encoding": {
+        "x": {
+          "field": "country",
+          "type": "nominal",
+          "title": "Country"
+        },
+        "y": {
+          "field": "trial_count",
+          "type": "quantitative",
+          "title": "Number of Trials",
+          "unit": "trials"
+        },
+        "color": {
+          "field": "trial_count",
+          "type": "quantitative",
+          "title": "Number of Trials",
+          "unit": "trials"
+        },
+        "location": {
+          "field": "country_iso3",
+          "type": "geo",
+          "title": "Country"
+        }
+      },
+      "data": [
+        {
+          "country": "United States",
+          "trial_count": 309,
+          "country_iso3": "USA",
+          "share_pct": 26.21,
+          "contributing_trial_count": 309,
+          "citations": [
+            {
+              "nct_id": "NCT01793168",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "United States",
+              "context": "Rare Disease Patient Registry & Natural History Study - Coordination of Rare Diseases at Sanford",
+              "url": "https://clinicaltrials.gov/study/NCT01793168"
+            },
+            {
+              "nct_id": "NCT02846571",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "United States",
+              "context": "Pancreatic Islet Transplantation Into the Anterior Chamber of the Eye",
+              "url": "https://clinicaltrials.gov/study/NCT02846571"
+            },
+            {
+              "nct_id": "NCT02969798",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "United States",
+              "context": "Pre-diabetes in Subject With Impaired Fasting Glucose (IFG) and Impaired Glucose Tolerance (IGT)",
+              "url": "https://clinicaltrials.gov/study/NCT02969798"
+            }
+          ]
+        },
+        {
+          "country": "China",
+          "trial_count": 122,
+          "country_iso3": "CHN",
+          "share_pct": 10.35,
+          "contributing_trial_count": 122,
+          "citations": [
+            {
+              "nct_id": "NCT02420470",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "China",
+              "context": "The Early Warning System for the Diabetic Encephalopathy",
+              "url": "https://clinicaltrials.gov/study/NCT02420470"
+            },
+            {
+              "nct_id": "NCT03087032",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "China",
+              "context": "Liraglutide-bolus vs Glargine-bolus Therapy in Overweight/Obese Type 2 Diabetes Patients (LiraGooD)",
+              "url": "https://clinicaltrials.gov/study/NCT03087032"
+            },
+            {
+              "nct_id": "NCT03264352",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "China",
+              "context": "Intervention for High-normal Blood Pressure in Adults With Type 2 Diabetes",
+              "url": "https://clinicaltrials.gov/study/NCT03264352"
+            }
+          ]
+        },
+        {
+          "country": "Canada",
+          "trial_count": 66,
+          "country_iso3": "CAN",
+          "share_pct": 5.6,
+          "contributing_trial_count": 66,
+          "citations": [
+            {
+              "nct_id": "NCT02390973",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Canada",
+              "context": "Surgery Versus Best Medical Management for the Long Term Remission of Type 2 Diabetes and Related Diseases (REMISSION)",
+              "url": "https://clinicaltrials.gov/study/NCT02390973"
+            },
+            {
+              "nct_id": "NCT02583061",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Canada",
+              "context": "Toronto Gestational Glucose Tolerance Cohort",
+              "url": "https://clinicaltrials.gov/study/NCT02583061"
+            },
+            {
+              "nct_id": "NCT02818192",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Canada",
+              "context": "Improving Renal Complications in Adolescents With Type 2 Diabetes Through REsearch Cohort Study (National iCARE Study)",
+              "url": "https://clinicaltrials.gov/study/NCT02818192"
+            }
+          ]
+        },
+        {
+          "country": "South Korea",
+          "trial_count": 52,
+          "country_iso3": "KOR",
+          "share_pct": 4.41,
+          "contributing_trial_count": 52,
+          "citations": [
+            {
+              "nct_id": "NCT03059069",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "South Korea",
+              "context": "The Effect of Gliatamin (Chonline Alphoscerate) on Depressive Mood in Type 2 Diabetes Patients",
+              "url": "https://clinicaltrials.gov/study/NCT03059069"
+            },
+            {
+              "nct_id": "NCT04284943",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "South Korea",
+              "context": "Surgical TreAtment for Obesity Related Disease and Onco-Metabolic Surgery",
+              "url": "https://clinicaltrials.gov/study/NCT04284943"
+            },
+            {
+              "nct_id": "NCT04932928",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "South Korea",
+              "context": "Patient-Driven Lifestyle Modification Using FreeStyle Libre in Type 2 Diabetes Patients",
+              "url": "https://clinicaltrials.gov/study/NCT04932928"
+            }
+          ]
+        },
+        {
+          "country": "United Kingdom",
+          "trial_count": 47,
+          "country_iso3": "GBR",
+          "share_pct": 3.99,
+          "contributing_trial_count": 47,
+          "citations": [
+            {
+              "nct_id": "NCT01945840",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "United Kingdom",
+              "context": "Gut Hormones and Roux en Y Gastric Bypass",
+              "url": "https://clinicaltrials.gov/study/NCT01945840"
+            },
+            {
+              "nct_id": "NCT02037867",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "United Kingdom",
+              "context": "Nottingham Community Liver Biomarkers Cohort",
+              "url": "https://clinicaltrials.gov/study/NCT02037867"
+            },
+            {
+              "nct_id": "NCT02169518",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "United Kingdom",
+              "context": "Paraoxonase and HDL Qualities in Glycaemia and Inflammation",
+              "url": "https://clinicaltrials.gov/study/NCT02169518"
+            }
+          ]
+        },
+        {
+          "country": "Germany",
+          "trial_count": 43,
+          "country_iso3": "DEU",
+          "share_pct": 3.65,
+          "contributing_trial_count": 43,
+          "citations": [
+            {
+              "nct_id": "NCT01055093",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Germany",
+              "context": "Prospective Study on Diabetes Mellitus and Its Complications in Newly Diagnosed Adult Patients",
+              "url": "https://clinicaltrials.gov/study/NCT01055093"
+            },
+            {
+              "nct_id": "NCT01477957",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Germany",
+              "context": "The Effect of Bariatric Surgery on Insulin Sensitivity and Energy Metabolism",
+              "url": "https://clinicaltrials.gov/study/NCT01477957"
+            },
+            {
+              "nct_id": "NCT03323216",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Germany",
+              "context": "BIO-2-HEART: Identification of Biomarkers in T2DM and Heart Failure",
+              "url": "https://clinicaltrials.gov/study/NCT03323216"
+            }
+          ]
+        },
+        {
+          "country": "Italy",
+          "trial_count": 40,
+          "country_iso3": "ITA",
+          "share_pct": 3.39,
+          "contributing_trial_count": 40,
+          "citations": [
+            {
+              "nct_id": "NCT02038517",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Italy",
+              "context": "Cirrhosis, Effects of TRAnsplantation and Diabetes",
+              "url": "https://clinicaltrials.gov/study/NCT02038517"
+            },
+            {
+              "nct_id": "NCT04442334",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Italy",
+              "context": "The European NAFLD Registry",
+              "url": "https://clinicaltrials.gov/study/NCT04442334"
+            },
+            {
+              "nct_id": "NCT04786262",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Italy",
+              "context": "A Safety, Tolerability, and Efficacy Study of VX-880 and VX-017 in Participants With Type 1 Diabetes",
+              "url": "https://clinicaltrials.gov/study/NCT04786262"
+            }
+          ]
+        },
+        {
+          "country": "Spain",
+          "trial_count": 38,
+          "country_iso3": "ESP",
+          "share_pct": 3.22,
+          "contributing_trial_count": 38,
+          "citations": [
+            {
+              "nct_id": "NCT02817360",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Spain",
+              "context": "NT-proBNP Selected Prevention of Cardiac Events in Diabetic Patients",
+              "url": "https://clinicaltrials.gov/study/NCT02817360"
+            },
+            {
+              "nct_id": "NCT03457168",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Spain",
+              "context": "Treatment of Hypertension During Sleep",
+              "url": "https://clinicaltrials.gov/study/NCT03457168"
+            },
+            {
+              "nct_id": "NCT04442334",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Spain",
+              "context": "The European NAFLD Registry",
+              "url": "https://clinicaltrials.gov/study/NCT04442334"
+            }
+          ]
+        },
+        {
+          "country": "Denmark",
+          "trial_count": 37,
+          "country_iso3": "DNK",
+          "share_pct": 3.14,
+          "contributing_trial_count": 37,
+          "citations": [
+            {
+              "nct_id": "NCT04880005",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Denmark",
+              "context": "Digital Individualized and Collaborative Treatment of T2D in General Practice Based on Decision Aid",
+              "url": "https://clinicaltrials.gov/study/NCT04880005"
+            },
+            {
+              "nct_id": "NCT04916132",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Denmark",
+              "context": "Diabetic Nephropathy in People With Diabetes. Prevalence and Predictive Factors",
+              "url": "https://clinicaltrials.gov/study/NCT04916132"
+            },
+            {
+              "nct_id": "NCT04941794",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Denmark",
+              "context": "Biomarkers as Predictors of Chronic Heart Failure in Patients With Type 2 Diabetes",
+              "url": "https://clinicaltrials.gov/study/NCT04941794"
+            }
+          ]
+        },
+        {
+          "country": "France",
+          "trial_count": 36,
+          "country_iso3": "FRA",
+          "share_pct": 3.05,
+          "contributing_trial_count": 36,
+          "citations": [
+            {
+              "nct_id": "NCT02861781",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "France",
+              "context": "Collection of Human Metabolic Tissues",
+              "url": "https://clinicaltrials.gov/study/NCT02861781"
+            },
+            {
+              "nct_id": "NCT03821636",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "France",
+              "context": "Impact of Long Alimentary Limb or Long Biliary Limb Roux-en-Y Gastric Bypass on Type 2 Diabetes Remission in Severely Obese Patients.",
+              "url": "https://clinicaltrials.gov/study/NCT03821636"
+            },
+            {
+              "nct_id": "NCT04442334",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "France",
+              "context": "The European NAFLD Registry",
+              "url": "https://clinicaltrials.gov/study/NCT04442334"
+            }
+          ]
+        },
+        {
+          "country": "Turkey (T\u00fcrkiye)",
+          "trial_count": 32,
+          "country_iso3": "TUR",
+          "share_pct": 2.71,
+          "contributing_trial_count": 32,
+          "citations": [
+            {
+              "nct_id": "NCT05142189",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Turkey (T\u00fcrkiye)",
+              "context": "Clinical Trial Evaluating the Safety, Tolerability and Preliminary Efficacy of BNT116 Alone and in Combinations in Patients With Advanced Non-small Cell Lung Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT05142189"
+            },
+            {
+              "nct_id": "NCT06271382",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Turkey (T\u00fcrkiye)",
+              "context": "The Effect Of Acupressure and Foot Exercise on Ankle Brachial Index in Individuals With Type 2 Diabetes",
+              "url": "https://clinicaltrials.gov/study/NCT06271382"
+            },
+            {
+              "nct_id": "NCT06588894",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Turkey (T\u00fcrkiye)",
+              "context": "Investigation of Motor Imagery Ability, Body Awareness and Cognitive Functions in Type 2 Diabetes Mellitus",
+              "url": "https://clinicaltrials.gov/study/NCT06588894"
+            }
+          ]
+        },
+        {
+          "country": "Australia",
+          "trial_count": 30,
+          "country_iso3": "AUS",
+          "share_pct": 2.54,
+          "contributing_trial_count": 30,
+          "citations": [
+            {
+              "nct_id": "NCT01793168",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Australia",
+              "context": "Rare Disease Patient Registry & Natural History Study - Coordination of Rare Diseases at Sanford",
+              "url": "https://clinicaltrials.gov/study/NCT01793168"
+            },
+            {
+              "nct_id": "NCT04869098",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Australia",
+              "context": "Effects of an Evening PROtein PrEload on Metabolic Health in Night ShIfT Workers (PROPENSITy)",
+              "url": "https://clinicaltrials.gov/study/NCT04869098"
+            },
+            {
+              "nct_id": "NCT05142189",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Australia",
+              "context": "Clinical Trial Evaluating the Safety, Tolerability and Preliminary Efficacy of BNT116 Alone and in Combinations in Patients With Advanced Non-small Cell Lung Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT05142189"
+            }
+          ]
+        },
+        {
+          "country": "Brazil",
+          "trial_count": 30,
+          "country_iso3": "BRA",
+          "share_pct": 2.54,
+          "contributing_trial_count": 30,
+          "citations": [
+            {
+              "nct_id": "NCT03549754",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Brazil",
+              "context": "iCaReMe Global Registry: Multinational Real-world Evidence in Cardiorenal and Metabolic Diseases",
+              "url": "https://clinicaltrials.gov/study/NCT03549754"
+            },
+            {
+              "nct_id": "NCT04602754",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Brazil",
+              "context": "Efficacy and Safety of Berlim 25/20 Association in the Treatment of Type II Diabetes Mellitus and Dyslipidemia.",
+              "url": "https://clinicaltrials.gov/study/NCT04602754"
+            },
+            {
+              "nct_id": "NCT04670666",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Brazil",
+              "context": "Efficacy and Safety of Madalena Association in the Treatment of Type II Diabetes Mellitus",
+              "url": "https://clinicaltrials.gov/study/NCT04670666"
+            }
+          ]
+        },
+        {
+          "country": "India",
+          "trial_count": 24,
+          "country_iso3": "IND",
+          "share_pct": 2.04,
+          "contributing_trial_count": 24,
+          "citations": [
+            {
+              "nct_id": "NCT03549754",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "India",
+              "context": "iCaReMe Global Registry: Multinational Real-world Evidence in Cardiorenal and Metabolic Diseases",
+              "url": "https://clinicaltrials.gov/study/NCT03549754"
+            },
+            {
+              "nct_id": "NCT06035874",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "India",
+              "context": "Effect of Bempedoic Acid on Liver Fat in Individuals With Nonalcoholic Fatty Liver Disease and Type 2 Diabetes",
+              "url": "https://clinicaltrials.gov/study/NCT06035874"
+            },
+            {
+              "nct_id": "NCT06209411",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "India",
+              "context": "Community Health Worker-Led Postpartum Diabetes Screening",
+              "url": "https://clinicaltrials.gov/study/NCT06209411"
+            }
+          ]
+        },
+        {
+          "country": "Japan",
+          "trial_count": 23,
+          "country_iso3": "JPN",
+          "share_pct": 1.95,
+          "contributing_trial_count": 23,
+          "citations": [
+            {
+              "nct_id": "NCT05469659",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Japan",
+              "context": "Effect of Tofogliflozin on UACR Compared to Metformin Hydrochloride in Diabetic Kidney Disease (TRUTH-DKD)",
+              "url": "https://clinicaltrials.gov/study/NCT05469659"
+            },
+            {
+              "nct_id": "NCT06278207",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Japan",
+              "context": "An Observational Study Called FINEROD to Learn More About the Use of the Treatment Finerenone Including How Safe it is and How Well it Works Under Real-world Conditions",
+              "url": "https://clinicaltrials.gov/study/NCT06278207"
+            },
+            {
+              "nct_id": "NCT06694012",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Japan",
+              "context": "Osaka Cardiometabolic Epidemiological Study: Ohtori Study Part 2",
+              "url": "https://clinicaltrials.gov/study/NCT06694012"
+            }
+          ]
+        },
+        {
+          "country": "Poland",
+          "trial_count": 23,
+          "country_iso3": "POL",
+          "share_pct": 1.95,
+          "contributing_trial_count": 23,
+          "citations": [
+            {
+              "nct_id": "NCT05142189",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Poland",
+              "context": "Clinical Trial Evaluating the Safety, Tolerability and Preliminary Efficacy of BNT116 Alone and in Combinations in Patients With Advanced Non-small Cell Lung Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT05142189"
+            },
+            {
+              "nct_id": "NCT06704672",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Poland",
+              "context": "Clinical Study to Evaluate the Impact of the Accu-Chek SmartGuide CGM Solution on the Mean Change in Time in Range Compared With Self-Monitoring of Blood Glucose in Participants\u2026",
+              "url": "https://clinicaltrials.gov/study/NCT06704672"
+            },
+            {
+              "nct_id": "NCT06717698",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Poland",
+              "context": "A Research Study Comparing How Well Different Doses of the Medicine NNC0519-0130 Can Reduce Kidney Damage in People Living With Chronic Kidney Disease",
+              "url": "https://clinicaltrials.gov/study/NCT06717698"
+            }
+          ]
+        },
+        {
+          "country": "Taiwan",
+          "trial_count": 23,
+          "country_iso3": "TWN",
+          "share_pct": 1.95,
+          "contributing_trial_count": 23,
+          "citations": [
+            {
+              "nct_id": "NCT03549754",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Taiwan",
+              "context": "iCaReMe Global Registry: Multinational Real-world Evidence in Cardiorenal and Metabolic Diseases",
+              "url": "https://clinicaltrials.gov/study/NCT03549754"
+            },
+            {
+              "nct_id": "NCT05687968",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Taiwan",
+              "context": "Innovative Approaches in Diabetes Care",
+              "url": "https://clinicaltrials.gov/study/NCT05687968"
+            },
+            {
+              "nct_id": "NCT06111833",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Taiwan",
+              "context": "Optimized Diagnosis and Precision Medicine of MODY",
+              "url": "https://clinicaltrials.gov/study/NCT06111833"
+            }
+          ]
+        },
+        {
+          "country": "Sweden",
+          "trial_count": 22,
+          "country_iso3": "SWE",
+          "share_pct": 1.87,
+          "contributing_trial_count": 22,
+          "citations": [
+            {
+              "nct_id": "NCT01984762",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Sweden",
+              "context": "Sleeve Gastrectomy and Roux-en-Y Gastric Bypass in the Treatment of Type 2 Diabetes Mellitus.",
+              "url": "https://clinicaltrials.gov/study/NCT01984762"
+            },
+            {
+              "nct_id": "NCT04442334",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Sweden",
+              "context": "The European NAFLD Registry",
+              "url": "https://clinicaltrials.gov/study/NCT04442334"
+            },
+            {
+              "nct_id": "NCT04917471",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Sweden",
+              "context": "Effect of Nitrate on Red Blood Cell Function in Type 2 Diabetes",
+              "url": "https://clinicaltrials.gov/study/NCT04917471"
+            }
+          ]
+        },
+        {
+          "country": "Argentina",
+          "trial_count": 19,
+          "country_iso3": "ARG",
+          "share_pct": 1.61,
+          "contributing_trial_count": 19,
+          "citations": [
+            {
+              "nct_id": "NCT06717698",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Argentina",
+              "context": "A Research Study Comparing How Well Different Doses of the Medicine NNC0519-0130 Can Reduce Kidney Damage in People Living With Chronic Kidney Disease",
+              "url": "https://clinicaltrials.gov/study/NCT06717698"
+            },
+            {
+              "nct_id": "NCT06739122",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Argentina",
+              "context": "A Study of Dulaglutide (LY2189265) 3.0 mg and 4.5 mg in Pediatric Participants With Type 2 Diabetes Mellitus (AWARD-PEDS PLUS)",
+              "url": "https://clinicaltrials.gov/study/NCT06739122"
+            },
+            {
+              "nct_id": "NCT07064473",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Argentina",
+              "context": "EASi-PROTKT\u2122 - A Study to Test Vicadrostat (BI 690517) Taken Together With Empagliflozin in People With Type 2 Diabetes, High Blood Pressure, and Cardiovascular Disease",
+              "url": "https://clinicaltrials.gov/study/NCT07064473"
+            }
+          ]
+        },
+        {
+          "country": "Belgium",
+          "trial_count": 19,
+          "country_iso3": "BEL",
+          "share_pct": 1.61,
+          "contributing_trial_count": 19,
+          "citations": [
+            {
+              "nct_id": "NCT04442334",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Belgium",
+              "context": "The European NAFLD Registry",
+              "url": "https://clinicaltrials.gov/study/NCT04442334"
+            },
+            {
+              "nct_id": "NCT04993482",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Belgium",
+              "context": "24-hour Movement Behaviors Among Type 2 Diabetes Mellitus Patients",
+              "url": "https://clinicaltrials.gov/study/NCT04993482"
+            },
+            {
+              "nct_id": "NCT05569772",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Belgium",
+              "context": "Semaglutide for the Treatment of Glucose Intolerance in Women With Prior Gestational Diabetes",
+              "url": "https://clinicaltrials.gov/study/NCT05569772"
+            }
+          ]
+        },
+        {
+          "country": "Czechia",
+          "trial_count": 19,
+          "country_iso3": "CZE",
+          "share_pct": 1.61,
+          "contributing_trial_count": 19,
+          "citations": [
+            {
+              "nct_id": "NCT05651724",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Czechia",
+              "context": "Global Research Initiative for Patients Screening on MASH",
+              "url": "https://clinicaltrials.gov/study/NCT05651724"
+            },
+            {
+              "nct_id": "NCT06068114",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Czechia",
+              "context": "Gastric Pathophysiology in Diabetes",
+              "url": "https://clinicaltrials.gov/study/NCT06068114"
+            },
+            {
+              "nct_id": "NCT06374368",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Czechia",
+              "context": "Small Bowel Diversion",
+              "url": "https://clinicaltrials.gov/study/NCT06374368"
+            }
+          ]
+        },
+        {
+          "country": "Netherlands",
+          "trial_count": 17,
+          "country_iso3": "NLD",
+          "share_pct": 1.44,
+          "contributing_trial_count": 17,
+          "citations": [
+            {
+              "nct_id": "NCT02817360",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Netherlands",
+              "context": "NT-proBNP Selected Prevention of Cardiac Events in Diabetic Patients",
+              "url": "https://clinicaltrials.gov/study/NCT02817360"
+            },
+            {
+              "nct_id": "NCT04190849",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Netherlands",
+              "context": "European Paediatric Non-Alcoholic Fatty Liver Disease Registry (EU-PNAFLD)",
+              "url": "https://clinicaltrials.gov/study/NCT04190849"
+            },
+            {
+              "nct_id": "NCT04442334",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Netherlands",
+              "context": "The European NAFLD Registry",
+              "url": "https://clinicaltrials.gov/study/NCT04442334"
+            }
+          ]
+        },
+        {
+          "country": "Mexico",
+          "trial_count": 16,
+          "country_iso3": "MEX",
+          "share_pct": 1.36,
+          "contributing_trial_count": 16,
+          "citations": [
+            {
+              "nct_id": "NCT02836808",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Mexico",
+              "context": "Validation of an Integrated Attention Model for Patients With Type 2 Diabetes",
+              "url": "https://clinicaltrials.gov/study/NCT02836808"
+            },
+            {
+              "nct_id": "NCT03549754",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Mexico",
+              "context": "iCaReMe Global Registry: Multinational Real-world Evidence in Cardiorenal and Metabolic Diseases",
+              "url": "https://clinicaltrials.gov/study/NCT03549754"
+            },
+            {
+              "nct_id": "NCT06468553",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Mexico",
+              "context": "Multidisciplinary Care for Lifestyle Change for Metabolic Control and Quality of Life in Prediabetes (PreCPro)",
+              "url": "https://clinicaltrials.gov/study/NCT06468553"
+            }
+          ]
+        },
+        {
+          "country": "Greece",
+          "trial_count": 15,
+          "country_iso3": "GRC",
+          "share_pct": 1.27,
+          "contributing_trial_count": 15,
+          "citations": [
+            {
+              "nct_id": "NCT03878706",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Greece",
+              "context": "The Cardiovascular Effect of GLP-1 Agonist, SGLT2 Inhibitor and Their Combination",
+              "url": "https://clinicaltrials.gov/study/NCT03878706"
+            },
+            {
+              "nct_id": "NCT04442334",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Greece",
+              "context": "The European NAFLD Registry",
+              "url": "https://clinicaltrials.gov/study/NCT04442334"
+            },
+            {
+              "nct_id": "NCT05633810",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Greece",
+              "context": "COLchicine and Non-enteric Coated Aspirin in the Cardiovascular Outcomes Trial of Patients With Type 2 Diabetes",
+              "url": "https://clinicaltrials.gov/study/NCT05633810"
+            }
+          ]
+        },
+        {
+          "country": "Malaysia",
+          "trial_count": 14,
+          "country_iso3": "MYS",
+          "share_pct": 1.19,
+          "contributing_trial_count": 14,
+          "citations": [
+            {
+              "nct_id": "NCT03549754",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Malaysia",
+              "context": "iCaReMe Global Registry: Multinational Real-world Evidence in Cardiorenal and Metabolic Diseases",
+              "url": "https://clinicaltrials.gov/study/NCT03549754"
+            },
+            {
+              "nct_id": "NCT06319560",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Malaysia",
+              "context": "Hydroxychloroquine in Type 2 Diabetes During Pregnancy",
+              "url": "https://clinicaltrials.gov/study/NCT06319560"
+            },
+            {
+              "nct_id": "NCT06590519",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Malaysia",
+              "context": "Date Seed Extract Effectiveness in Controlling Diabetes and Cardiovascular Risk in T2DM",
+              "url": "https://clinicaltrials.gov/study/NCT06590519"
+            }
+          ]
+        },
+        {
+          "country": "Pakistan",
+          "trial_count": 14,
+          "country_iso3": "PAK",
+          "share_pct": 1.19,
+          "contributing_trial_count": 14,
+          "citations": [
+            {
+              "nct_id": "NCT05156736",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Pakistan",
+              "context": "Pakistan Study of Premature Coronary Atherosclerosis in Young Adults",
+              "url": "https://clinicaltrials.gov/study/NCT05156736"
+            },
+            {
+              "nct_id": "NCT05164263",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Pakistan",
+              "context": "Real World Safety & Efficacy Experience of Empagliflozin With or Without Metformin in T2DM Patients - EASE Study",
+              "url": "https://clinicaltrials.gov/study/NCT05164263"
+            },
+            {
+              "nct_id": "NCT05610865",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Pakistan",
+              "context": "Efficacy of Adipose Tissue Derived Stem Cells for the Treatment of Diabetic Foot Ulcers",
+              "url": "https://clinicaltrials.gov/study/NCT05610865"
+            }
+          ]
+        },
+        {
+          "country": "Hungary",
+          "trial_count": 13,
+          "country_iso3": "HUN",
+          "share_pct": 1.1,
+          "contributing_trial_count": 13,
+          "citations": [
+            {
+              "nct_id": "NCT05142189",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Hungary",
+              "context": "Clinical Trial Evaluating the Safety, Tolerability and Preliminary Efficacy of BNT116 Alone and in Combinations in Patients With Advanced Non-small Cell Lung Cancer",
+              "url": "https://clinicaltrials.gov/study/NCT05142189"
+            },
+            {
+              "nct_id": "NCT07064473",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Hungary",
+              "context": "EASi-PROTKT\u2122 - A Study to Test Vicadrostat (BI 690517) Taken Together With Empagliflozin in People With Type 2 Diabetes, High Blood Pressure, and Cardiovascular Disease",
+              "url": "https://clinicaltrials.gov/study/NCT07064473"
+            },
+            {
+              "nct_id": "NCT07086989",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Hungary",
+              "context": "Cardiovascular Risk in Children With Chronic Conditions Study",
+              "url": "https://clinicaltrials.gov/study/NCT07086989"
+            }
+          ]
+        },
+        {
+          "country": "Hong Kong",
+          "trial_count": 12,
+          "country_iso3": "HKG",
+          "share_pct": 1.02,
+          "contributing_trial_count": 12,
+          "citations": [
+            {
+              "nct_id": "NCT03549754",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Hong Kong",
+              "context": "iCaReMe Global Registry: Multinational Real-world Evidence in Cardiorenal and Metabolic Diseases",
+              "url": "https://clinicaltrials.gov/study/NCT03549754"
+            },
+            {
+              "nct_id": "NCT03875625",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Hong Kong",
+              "context": "Change of Adipose Tissues and Triglyceride After Bariatric Surgery or Life-style Intervention",
+              "url": "https://clinicaltrials.gov/study/NCT03875625"
+            },
+            {
+              "nct_id": "NCT05268237",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Hong Kong",
+              "context": "Safety, Tolerability and Preliminary Efficacy of Sublingual Liraglutide in Patients With Type 2 Diabetes Mellitus",
+              "url": "https://clinicaltrials.gov/study/NCT05268237"
+            }
+          ]
+        },
+        {
+          "country": "Puerto Rico",
+          "trial_count": 12,
+          "country_iso3": "PRI",
+          "share_pct": 1.02,
+          "contributing_trial_count": 12,
+          "citations": [
+            {
+              "nct_id": "NCT05962372",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Puerto Rico",
+              "context": "Culturally Adapted Dietary Clinical Trial in PR",
+              "url": "https://clinicaltrials.gov/study/NCT05962372"
+            },
+            {
+              "nct_id": "NCT06251323",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Puerto Rico",
+              "context": "Implementing Scalable, PAtient-centered, Team-based, Technology-enabled Care for Adults With Type 2 Diabetes (iPATH)",
+              "url": "https://clinicaltrials.gov/study/NCT06251323"
+            },
+            {
+              "nct_id": "NCT06897475",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Puerto Rico",
+              "context": "A Study of LY3457263 Compared With Placebo in Participants With Type 2 Diabetes on a Stable Dose of Semaglutide or Tirzepatide",
+              "url": "https://clinicaltrials.gov/study/NCT06897475"
+            }
+          ]
+        },
+        {
+          "country": "Thailand",
+          "trial_count": 12,
+          "country_iso3": "THA",
+          "share_pct": 1.02,
+          "contributing_trial_count": 12,
+          "citations": [
+            {
+              "nct_id": "NCT06647745",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Thailand",
+              "context": "A Randomized, Double-blind, Multi-center, Active-controlled, Phase 3 Clinical Trial to Evaluate the Efficacy and Safety of Combination Therapy of THP-00101, THP-00102, and\u2026",
+              "url": "https://clinicaltrials.gov/study/NCT06647745"
+            },
+            {
+              "nct_id": "NCT07064473",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Thailand",
+              "context": "EASi-PROTKT\u2122 - A Study to Test Vicadrostat (BI 690517) Taken Together With Empagliflozin in People With Type 2 Diabetes, High Blood Pressure, and Cardiovascular Disease",
+              "url": "https://clinicaltrials.gov/study/NCT07064473"
+            },
+            {
+              "nct_id": "NCT07195045",
+              "field": "protocolSection.contactsLocationsModule.locations.country",
+              "excerpt": "Thailand",
+              "context": "Thai PainPREDICT Validation Study",
+              "url": "https://clinicaltrials.gov/study/NCT07195045"
+            }
+          ]
+        }
+      ]
+    },
+    "meta": {
+      "interpretation": "The user wants to know which countries host the most currently recruiting clinical trials for type 2 diabetes, ranked by trial count and shown geographically.",
+      "assumptions": [
+        "'Recruiting' interpreted strictly as overall status RECRUITING, excluding 'not yet recruiting' and 'enrolling by invitation'.",
+        "No date window applied \u2014 all currently recruiting trials regardless of start year.",
+        "Both interventional and observational studies included, since the question is not phase-specific.",
+        "The condition term 'type 2 diabetes' is passed as written, so the API's synonym/MeSH expansion (Diabetes Mellitus, Type 2) applies.",
+        "A trial running in several countries contributes to each of those countries; top 30 countries shown."
+      ],
+      "filters_applied": {
+        "user": {},
+        "inferred": {
+          "T2D recruiting": {
+            "conditions": [
+              "type 2 diabetes"
+            ],
+            "statuses": [
+              "RECRUITING"
+            ]
+          }
+        }
+      },
+      "counting_semantics": "A trial may report several values for country, so it is counted once per value. Bucket values therefore sum to more than the number of trials.",
+      "coverage": {
+        "strategy": "fetch_and_aggregate",
+        "total_matching": 873,
+        "analyzed": 873,
+        "truncated": false,
+        "per_cohort": [
+          {
+            "name": "T2D recruiting",
+            "total_matching": 873,
+            "analyzed": 873,
+            "truncated": false
+          }
+        ],
+        "records_missing_dimension": 0,
+        "records_missing_measure": 0,
+        "categories_omitted": 52
+      },
+      "measure": {
+        "id": "trial_count",
+        "label": "Number of Trials",
+        "unit": "trials"
+      },
+      "sort": {
+        "by": "value",
+        "order": "desc"
+      },
+      "ctgov_requests": [
+        {
+          "query.cond": "type 2 diabetes",
+          "filter.overallStatus": "RECRUITING",
+          "fields": "NCTId,BriefTitle,LocationCountry",
+          "pageSize": "1000",
+          "countTotal": "true"
+        }
+      ],
+      "warnings": [],
+      "source": {
+        "name": "ClinicalTrials.gov",
+        "api": "https://clinicaltrials.gov/data-api/api",
+        "api_version": "v2",
+        "retrieved_at": "2026-09-18T23:10:53.282264Z"
+      },
+      "generated_at": "2026-09-18T23:10:53.282271Z"
+    },
+    "plan": {
+      "interpretation": "The user wants to know which countries host the most currently recruiting clinical trials for type 2 diabetes, ranked by trial count and shown geographically.",
+      "assumptions": [
+        "'Recruiting' interpreted strictly as overall status RECRUITING, excluding 'not yet recruiting' and 'enrolling by invitation'.",
+        "No date window applied \u2014 all currently recruiting trials regardless of start year.",
+        "Both interventional and observational studies included, since the question is not phase-specific.",
+        "The condition term 'type 2 diabetes' is passed as written, so the API's synonym/MeSH expansion (Diabetes Mellitus, Type 2) applies.",
+        "A trial running in several countries contributes to each of those countries; top 30 countries shown."
+      ],
+      "retrieval": {
+        "cohorts": [
+          {
+            "name": "T2D recruiting",
+            "filters": {
+              "conditions": [
+                "type 2 diabetes"
+              ],
+              "interventions": [],
+              "sponsors": [],
+              "terms": [],
+              "locations": [],
+              "phases": [],
+              "statuses": [
+                "RECRUITING"
+              ],
+              "study_types": [],
+              "intervention_types": [],
+              "sponsor_classes": [],
+              "countries": []
+            }
+          }
+        ]
+      },
+      "analysis": {
+        "kind": "group_by",
+        "dimension": "country",
+        "measure": "trial_count",
+        "top_k": 30,
+        "sort_by": "value",
+        "sort_order": "desc",
+        "include_unknown": false
+      },
+      "visualization": {
+        "type": "geo_map",
+        "title": "Countries with the Most Currently Recruiting Type 2 Diabetes Trials",
+        "subtitle": "Trial counts by country of study site; multi-country trials counted once per country (top 30 countries)"
+      }
+    },
+    "citation_index": {
+      "NCT01793168": {
+        "title": "Rare Disease Patient Registry & Natural History Study - Coordination of Rare Diseases at Sanford",
+        "url": "https://clinicaltrials.gov/study/NCT01793168"
+      },
+      "NCT02846571": {
+        "title": "Pancreatic Islet Transplantation Into the Anterior Chamber of the Eye",
+        "url": "https://clinicaltrials.gov/study/NCT02846571"
+      },
+      "NCT02969798": {
+        "title": "Pre-diabetes in Subject With Impaired Fasting Glucose (IFG) and Impaired Glucose Tolerance (IGT)",
+        "url": "https://clinicaltrials.gov/study/NCT02969798"
+      },
+      "NCT02420470": {
+        "title": "The Early Warning System for the Diabetic Encephalopathy",
+        "url": "https://clinicaltrials.gov/study/NCT02420470"
+      },
+      "NCT03087032": {
+        "title": "Liraglutide-bolus vs Glargine-bolus Therapy in Overweight/Obese Type 2 Diabetes Patients (LiraGooD)",
+        "url": "https://clinicaltrials.gov/study/NCT03087032"
+      },
+      "NCT03264352": {
+        "title": "Intervention for High-normal Blood Pressure in Adults With Type 2 Diabetes",
+        "url": "https://clinicaltrials.gov/study/NCT03264352"
+      },
+      "NCT02390973": {
+        "title": "Surgery Versus Best Medical Management for the Long Term Remission of Type 2 Diabetes and Related Diseases (REMISSION)",
+        "url": "https://clinicaltrials.gov/study/NCT02390973"
+      },
+      "NCT02583061": {
+        "title": "Toronto Gestational Glucose Tolerance Cohort",
+        "url": "https://clinicaltrials.gov/study/NCT02583061"
+      },
+      "NCT02818192": {
+        "title": "Improving Renal Complications in Adolescents With Type 2 Diabetes Through REsearch Cohort Study (National iCARE Study)",
+        "url": "https://clinicaltrials.gov/study/NCT02818192"
+      },
+      "NCT03059069": {
+        "title": "The Effect of Gliatamin (Chonline Alphoscerate) on Depressive Mood in Type 2 Diabetes Patients",
+        "url": "https://clinicaltrials.gov/study/NCT03059069"
+      },
+      "NCT04284943": {
+        "title": "Surgical TreAtment for Obesity Related Disease and Onco-Metabolic Surgery",
+        "url": "https://clinicaltrials.gov/study/NCT04284943"
+      },
+      "NCT04932928": {
+        "title": "Patient-Driven Lifestyle Modification Using FreeStyle Libre in Type 2 Diabetes Patients",
+        "url": "https://clinicaltrials.gov/study/NCT04932928"
+      },
+      "NCT01945840": {
+        "title": "Gut Hormones and Roux en Y Gastric Bypass",
+        "url": "https://clinicaltrials.gov/study/NCT01945840"
+      },
+      "NCT02037867": {
+        "title": "Nottingham Community Liver Biomarkers Cohort",
+        "url": "https://clinicaltrials.gov/study/NCT02037867"
+      },
+      "NCT02169518": {
+        "title": "Paraoxonase and HDL Qualities in Glycaemia and Inflammation",
+        "url": "https://clinicaltrials.gov/study/NCT02169518"
+      },
+      "NCT01055093": {
+        "title": "Prospective Study on Diabetes Mellitus and Its Complications in Newly Diagnosed Adult Patients",
+        "url": "https://clinicaltrials.gov/study/NCT01055093"
+      },
+      "NCT01477957": {
+        "title": "The Effect of Bariatric Surgery on Insulin Sensitivity and Energy Metabolism",
+        "url": "https://clinicaltrials.gov/study/NCT01477957"
+      },
+      "NCT03323216": {
+        "title": "BIO-2-HEART: Identification of Biomarkers in T2DM and Heart Failure",
+        "url": "https://clinicaltrials.gov/study/NCT03323216"
+      },
+      "NCT02038517": {
+        "title": "Cirrhosis, Effects of TRAnsplantation and Diabetes",
+        "url": "https://clinicaltrials.gov/study/NCT02038517"
+      },
+      "NCT04442334": {
+        "title": "The European NAFLD Registry",
+        "url": "https://clinicaltrials.gov/study/NCT04442334"
+      },
+      "NCT04786262": {
+        "title": "A Safety, Tolerability, and Efficacy Study of VX-880 and VX-017 in Participants With Type 1 Diabetes",
+        "url": "https://clinicaltrials.gov/study/NCT04786262"
+      },
+      "NCT02817360": {
+        "title": "NT-proBNP Selected Prevention of Cardiac Events in Diabetic Patients",
+        "url": "https://clinicaltrials.gov/study/NCT02817360"
+      },
+      "NCT03457168": {
+        "title": "Treatment of Hypertension During Sleep",
+        "url": "https://clinicaltrials.gov/study/NCT03457168"
+      },
+      "NCT04880005": {
+        "title": "Digital Individualized and Collaborative Treatment of T2D in General Practice Based on Decision Aid",
+        "url": "https://clinicaltrials.gov/study/NCT04880005"
+      },
+      "NCT04916132": {
+        "title": "Diabetic Nephropathy in People With Diabetes. Prevalence and Predictive Factors",
+        "url": "https://clinicaltrials.gov/study/NCT04916132"
+      },
+      "NCT04941794": {
+        "title": "Biomarkers as Predictors of Chronic Heart Failure in Patients With Type 2 Diabetes",
+        "url": "https://clinicaltrials.gov/study/NCT04941794"
+      },
+      "NCT02861781": {
+        "title": "Collection of Human Metabolic Tissues",
+        "url": "https://clinicaltrials.gov/study/NCT02861781"
+      },
+      "NCT03821636": {
+        "title": "Impact of Long Alimentary Limb or Long Biliary Limb Roux-en-Y Gastric Bypass on Type 2 Diabetes Remission in Severely Obese Patients.",
+        "url": "https://clinicaltrials.gov/study/NCT03821636"
+      },
+      "NCT05142189": {
+        "title": "Clinical Trial Evaluating the Safety, Tolerability and Preliminary Efficacy of BNT116 Alone and in Combinations in Patients With Advanced Non-small Cell Lung Cancer",
+        "url": "https://clinicaltrials.gov/study/NCT05142189"
+      },
+      "NCT06271382": {
+        "title": "The Effect Of Acupressure and Foot Exercise on Ankle Brachial Index in Individuals With Type 2 Diabetes",
+        "url": "https://clinicaltrials.gov/study/NCT06271382"
+      },
+      "NCT06588894": {
+        "title": "Investigation of Motor Imagery Ability, Body Awareness and Cognitive Functions in Type 2 Diabetes Mellitus",
+        "url": "https://clinicaltrials.gov/study/NCT06588894"
+      },
+      "NCT04869098": {
+        "title": "Effects of an Evening PROtein PrEload on Metabolic Health in Night ShIfT Workers (PROPENSITy)",
+        "url": "https://clinicaltrials.gov/study/NCT04869098"
+      },
+      "NCT03549754": {
+        "title": "iCaReMe Global Registry: Multinational Real-world Evidence in Cardiorenal and Metabolic Diseases",
+        "url": "https://clinicaltrials.gov/study/NCT03549754"
+      },
+      "NCT04602754": {
+        "title": "Efficacy and Safety of Berlim 25/20 Association in the Treatment of Type II Diabetes Mellitus and Dyslipidemia.",
+        "url": "https://clinicaltrials.gov/study/NCT04602754"
+      },
+      "NCT04670666": {
+        "title": "Efficacy and Safety of Madalena Association in the Treatment of Type II Diabetes Mellitus",
+        "url": "https://clinicaltrials.gov/study/NCT04670666"
+      },
+      "NCT06035874": {
+        "title": "Effect of Bempedoic Acid on Liver Fat in Individuals With Nonalcoholic Fatty Liver Disease and Type 2 Diabetes",
+        "url": "https://clinicaltrials.gov/study/NCT06035874"
+      },
+      "NCT06209411": {
+        "title": "Community Health Worker-Led Postpartum Diabetes Screening",
+        "url": "https://clinicaltrials.gov/study/NCT06209411"
+      },
+      "NCT05469659": {
+        "title": "Effect of Tofogliflozin on UACR Compared to Metformin Hydrochloride in Diabetic Kidney Disease (TRUTH-DKD)",
+        "url": "https://clinicaltrials.gov/study/NCT05469659"
+      },
+      "NCT06278207": {
+        "title": "An Observational Study Called FINEROD to Learn More About the Use of the Treatment Finerenone Including How Safe it is and How Well it Works Under Real-world Conditions",
+        "url": "https://clinicaltrials.gov/study/NCT06278207"
+      },
+      "NCT06694012": {
+        "title": "Osaka Cardiometabolic Epidemiological Study: Ohtori Study Part 2",
+        "url": "https://clinicaltrials.gov/study/NCT06694012"
+      },
+      "NCT06704672": {
+        "title": "Clinical Study to Evaluate the Impact of the Accu-Chek SmartGuide CGM Solution on the Mean Change in Time in Range Compared With Self-Monitoring of Blood Glucose in Participants With Type 1 and Type 2 Diabetes Mellitus",
+        "url": "https://clinicaltrials.gov/study/NCT06704672"
+      },
+      "NCT06717698": {
+        "title": "A Research Study Comparing How Well Different Doses of the Medicine NNC0519-0130 Can Reduce Kidney Damage in People Living With Chronic Kidney Disease",
+        "url": "https://clinicaltrials.gov/study/NCT06717698"
+      },
+      "NCT05687968": {
+        "title": "Innovative Approaches in Diabetes Care",
+        "url": "https://clinicaltrials.gov/study/NCT05687968"
+      },
+      "NCT06111833": {
+        "title": "Optimized Diagnosis and Precision Medicine of MODY",
+        "url": "https://clinicaltrials.gov/study/NCT06111833"
+      },
+      "NCT01984762": {
+        "title": "Sleeve Gastrectomy and Roux-en-Y Gastric Bypass in the Treatment of Type 2 Diabetes Mellitus.",
+        "url": "https://clinicaltrials.gov/study/NCT01984762"
+      },
+      "NCT04917471": {
+        "title": "Effect of Nitrate on Red Blood Cell Function in Type 2 Diabetes",
+        "url": "https://clinicaltrials.gov/study/NCT04917471"
+      },
+      "NCT06739122": {
+        "title": "A Study of Dulaglutide (LY2189265) 3.0 mg and 4.5 mg in Pediatric Participants With Type 2 Diabetes Mellitus (AWARD-PEDS PLUS)",
+        "url": "https://clinicaltrials.gov/study/NCT06739122"
+      },
+      "NCT07064473": {
+        "title": "EASi-PROTKT\u2122 - A Study to Test Vicadrostat (BI 690517) Taken Together With Empagliflozin in People With Type 2 Diabetes, High Blood Pressure, and Cardiovascular Disease",
+        "url": "https://clinicaltrials.gov/study/NCT07064473"
+      },
+      "NCT04993482": {
+        "title": "24-hour Movement Behaviors Among Type 2 Diabetes Mellitus Patients",
+        "url": "https://clinicaltrials.gov/study/NCT04993482"
+      },
+      "NCT05569772": {
+        "title": "Semaglutide for the Treatment of Glucose Intolerance in Women With Prior Gestational Diabetes",
+        "url": "https://clinicaltrials.gov/study/NCT05569772"
+      },
+      "NCT05651724": {
+        "title": "Global Research Initiative for Patients Screening on MASH",
+        "url": "https://clinicaltrials.gov/study/NCT05651724"
+      },
+      "NCT06068114": {
+        "title": "Gastric Pathophysiology in Diabetes",
+        "url": "https://clinicaltrials.gov/study/NCT06068114"
+      },
+      "NCT06374368": {
+        "title": "Small Bowel Diversion",
+        "url": "https://clinicaltrials.gov/study/NCT06374368"
+      },
+      "NCT04190849": {
+        "title": "European Paediatric Non-Alcoholic Fatty Liver Disease Registry (EU-PNAFLD)",
+        "url": "https://clinicaltrials.gov/study/NCT04190849"
+      },
+      "NCT02836808": {
+        "title": "Validation of an Integrated Attention Model for Patients With Type 2 Diabetes",
+        "url": "https://clinicaltrials.gov/study/NCT02836808"
+      },
+      "NCT06468553": {
+        "title": "Multidisciplinary Care for Lifestyle Change for Metabolic Control and Quality of Life in Prediabetes (PreCPro)",
+        "url": "https://clinicaltrials.gov/study/NCT06468553"
+      },
+      "NCT03878706": {
+        "title": "The Cardiovascular Effect of GLP-1 Agonist, SGLT2 Inhibitor and Their Combination",
+        "url": "https://clinicaltrials.gov/study/NCT03878706"
+      },
+      "NCT05633810": {
+        "title": "COLchicine and Non-enteric Coated Aspirin in the Cardiovascular Outcomes Trial of Patients With Type 2 Diabetes",
+        "url": "https://clinicaltrials.gov/study/NCT05633810"
+      },
+      "NCT06319560": {
+        "title": "Hydroxychloroquine in Type 2 Diabetes During Pregnancy",
+        "url": "https://clinicaltrials.gov/study/NCT06319560"
+      },
+      "NCT06590519": {
+        "title": "Date Seed Extract Effectiveness in Controlling Diabetes and Cardiovascular Risk in T2DM",
+        "url": "https://clinicaltrials.gov/study/NCT06590519"
+      },
+      "NCT05156736": {
+        "title": "Pakistan Study of Premature Coronary Atherosclerosis in Young Adults",
+        "url": "https://clinicaltrials.gov/study/NCT05156736"
+      },
+      "NCT05164263": {
+        "title": "Real World Safety & Efficacy Experience of Empagliflozin With or Without Metformin in T2DM Patients - EASE Study",
+        "url": "https://clinicaltrials.gov/study/NCT05164263"
+      },
+      "NCT05610865": {
+        "title": "Efficacy of Adipose Tissue Derived Stem Cells for the Treatment of Diabetic Foot Ulcers",
+        "url": "https://clinicaltrials.gov/study/NCT05610865"
+      },
+      "NCT07086989": {
+        "title": "Cardiovascular Risk in Children With Chronic Conditions Study",
+        "url": "https://clinicaltrials.gov/study/NCT07086989"
+      },
+      "NCT03875625": {
+        "title": "Change of Adipose Tissues and Triglyceride After Bariatric Surgery or Life-style Intervention",
+        "url": "https://clinicaltrials.gov/study/NCT03875625"
+      },
+      "NCT05268237": {
+        "title": "Safety, Tolerability and Preliminary Efficacy of Sublingual Liraglutide in Patients With Type 2 Diabetes Mellitus",
+        "url": "https://clinicaltrials.gov/study/NCT05268237"
+      },
+      "NCT05962372": {
+        "title": "Culturally Adapted Dietary Clinical Trial in PR",
+        "url": "https://clinicaltrials.gov/study/NCT05962372"
+      },
+      "NCT06251323": {
+        "title": "Implementing Scalable, PAtient-centered, Team-based, Technology-enabled Care for Adults With Type 2 Diabetes (iPATH)",
+        "url": "https://clinicaltrials.gov/study/NCT06251323"
+      },
+      "NCT06897475": {
+        "title": "A Study of LY3457263 Compared With Placebo in Participants With Type 2 Diabetes on a Stable Dose of Semaglutide or Tirzepatide",
+        "url": "https://clinicaltrials.gov/study/NCT06897475"
+      },
+      "NCT06647745": {
+        "title": "A Randomized, Double-blind, Multi-center, Active-controlled, Phase 3 Clinical Trial to Evaluate the Efficacy and Safety of Combination Therapy of THP-00101, THP-00102, and THP-00103 in Subjects With T2DM and Essential Hypertension",
+        "url": "https://clinicaltrials.gov/study/NCT06647745"
+      },
+      "NCT07195045": {
+        "title": "Thai PainPREDICT Validation Study",
+        "url": "https://clinicaltrials.gov/study/NCT07195045"
+      }
+    }
+  }
+}

@@ -1,0 +1,1605 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clinical Trial Genie</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <style>
+      /* Palette and chrome tokens follow the validated reference instance: categorical hues
+   are assigned in fixed slot order (never cycled), and the dark column is the same
+   hues re-stepped for the dark surface rather than an automatic inversion. */
+      :root {
+        color-scheme: light;
+        --surface-1: #fcfcfb;
+        --page: #f9f9f7;
+        --text-primary: #0b0b0b;
+        --text-secondary: #52514e;
+        --text-muted: #898781;
+        --grid: #e1e0d9;
+        --baseline: #c3c2b7;
+        --border: rgba(11, 11, 11, 0.1);
+        --series-1: #2a78d6;
+        --series-2: #eb6834;
+        --series-3: #1baf7a;
+        --series-4: #eda100;
+        --series-5: #e87ba4;
+        --series-6: #008300;
+        --series-7: #4a3aa7;
+        --series-8: #e34948;
+        --seq-400: #3987e5;
+        --seq-200: #9ec5f4;
+        --seq-600: #184f95;
+        --critical: #d03b3b;
+        --warning: #fab219;
+        --radius: 10px;
+        --font: system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:where(:not([data-theme="light"])) {
+          color-scheme: dark;
+          --surface-1: #1a1a19;
+          --page: #0d0d0d;
+          --text-primary: #ffffff;
+          --text-secondary: #c3c2b7;
+          --text-muted: #898781;
+          --grid: #2c2c2a;
+          --baseline: #383835;
+          --border: rgba(255, 255, 255, 0.1);
+          --series-1: #3987e5;
+          --series-2: #d95926;
+          --series-3: #199e70;
+          --series-4: #c98500;
+          --series-5: #d55181;
+          --series-6: #008300;
+          --series-7: #9085e9;
+          --series-8: #e66767;
+          --seq-400: #3987e5;
+          --seq-200: #184f95;
+          --seq-600: #9ec5f4;
+        }
+      }
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+        --surface-1: #1a1a19;
+        --page: #0d0d0d;
+        --text-primary: #ffffff;
+        --text-secondary: #c3c2b7;
+        --text-muted: #898781;
+        --grid: #2c2c2a;
+        --baseline: #383835;
+        --border: rgba(255, 255, 255, 0.1);
+        --series-1: #3987e5;
+        --series-2: #d95926;
+        --series-3: #199e70;
+        --series-4: #c98500;
+        --series-5: #d55181;
+        --series-6: #008300;
+        --series-7: #9085e9;
+        --series-8: #e66767;
+        --seq-400: #3987e5;
+        --seq-200: #184f95;
+        --seq-600: #9ec5f4;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--page);
+        color: var(--text-primary);
+        font-family: var(--font);
+        line-height: 1.5;
+        font-size: 15px;
+      }
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 32px 16px 80px;
+      }
+      header h1 {
+        font-size: 22px;
+        margin: 0 0 4px;
+        letter-spacing: -0.01em;
+      }
+      header p {
+        margin: 0 0 24px;
+        color: var(--text-secondary);
+        font-size: 14px;
+        max-width: 70ch;
+      }
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .card {
+        background: var(--surface-1);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-bottom: 5px;
+        letter-spacing: 0.01em;
+      }
+      textarea,
+      input,
+      select {
+        width: 100%;
+        padding: 9px 11px;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        background: var(--page);
+        color: var(--text-primary);
+        font-family: inherit;
+        font-size: 14px;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 62px;
+      }
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: 2px solid var(--series-1);
+        outline-offset: 1px;
+      }
+      .filters {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 14px;
+      }
+      button {
+        background: var(--series-1);
+        color: #fff;
+        border: 0;
+        border-radius: 7px;
+        padding: 10px 18px;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      button:hover {
+        filter: brightness(1.08);
+      }
+      button:disabled {
+        opacity: 0.55;
+        cursor: progress;
+      }
+      button.ghost {
+        background: transparent;
+        color: var(--text-secondary);
+        border: 1px solid var(--border);
+        font-weight: 500;
+      }
+      button.ghost[aria-expanded="true"] {
+        background: var(--series-1);
+        color: #fff;
+        border-color: var(--series-1);
+      }
+      .panel {
+        margin-top: 4px;
+      }
+      .chip {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text-secondary);
+        border-radius: 999px;
+        padding: 6px 13px;
+        font-size: 13px;
+        cursor: pointer;
+        font-weight: 500;
+      }
+      .chip:hover {
+        border-color: var(--series-1);
+        color: var(--series-1);
+      }
+      .examples {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+
+      h2.viz-title {
+        font-size: 18px;
+        margin: 0 0 2px;
+        letter-spacing: -0.01em;
+      }
+      .subtitle {
+        color: var(--text-secondary);
+        font-size: 13px;
+        margin: 0 0 18px;
+      }
+      .chart-holder {
+        position: relative;
+        height: 420px;
+      }
+      #network-canvas {
+        width: 100%;
+        height: 540px;
+        display: block;
+      }
+
+      .legend {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin: 14px 0 4px;
+        font-size: 13px;
+      }
+      .legend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        color: var(--text-secondary);
+      }
+      .swatch {
+        width: 11px;
+        height: 11px;
+        border-radius: 3px;
+        flex: none;
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 18px;
+      }
+      .meta h3 {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--text-muted);
+        margin: 0 0 6px;
+        font-weight: 700;
+      }
+      .meta p,
+      .meta li {
+        font-size: 13.5px;
+        color: var(--text-secondary);
+        margin: 0 0 6px;
+      }
+      .meta ul {
+        margin: 0;
+        padding-left: 17px;
+      }
+      .warn {
+        border-left: 3px solid var(--warning);
+        padding-left: 11px;
+      }
+      .stat {
+        font-size: 26px;
+        font-weight: 650;
+        color: var(--text-primary);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13.5px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 7px 10px;
+        border-bottom: 1px solid var(--grid);
+      }
+      th {
+        color: var(--text-muted);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      td.num {
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+      }
+      tbody tr:hover {
+        background: var(--page);
+      }
+      tbody tr.clickable {
+        cursor: pointer;
+      }
+
+      .drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: min(480px, 100%);
+        background: var(--surface-1);
+        border-left: 1px solid var(--border);
+        padding: 22px;
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: transform 0.22s ease;
+        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.13);
+        z-index: 40;
+      }
+      .drawer.open {
+        transform: translateX(0);
+      }
+      .cite {
+        border-bottom: 1px solid var(--grid);
+        padding: 13px 0;
+      }
+      .cite a {
+        color: var(--series-1);
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 13.5px;
+      }
+      .cite .excerpt {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 12px;
+        background: var(--page);
+        padding: 3px 7px;
+        border-radius: 5px;
+        display: inline-block;
+        margin: 5px 0;
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+      }
+      .cite .ctx {
+        font-size: 12.5px;
+        color: var(--text-secondary);
+        margin: 3px 0 0;
+      }
+      .cite .field {
+        font-size: 11px;
+        color: var(--text-muted);
+        font-family: ui-monospace, monospace;
+      }
+
+      pre {
+        background: var(--page);
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        padding: 14px;
+        overflow: auto;
+        font-size: 11.5px;
+        max-height: 480px;
+        margin: 0;
+      }
+      .hidden {
+        display: none !important;
+      }
+      .error {
+        border-left: 3px solid var(--critical);
+        padding-left: 13px;
+      }
+      .error h3 {
+        color: var(--critical);
+        margin: 0 0 5px;
+        font-size: 14px;
+      }
+      .spinner {
+        width: 15px;
+        height: 15px;
+        border: 2px solid var(--border);
+        border-top-color: var(--series-1);
+        border-radius: 50%;
+        display: inline-block;
+        animation: spin 0.7s linear infinite;
+        vertical-align: -2px;
+        margin-right: 7px;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .hint {
+        font-size: 12.5px;
+        color: var(--text-muted);
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <header>
+          <h1>Clinical Trial Genie - Chieron</h1>
+          <p>Ask a question about clinical trials.</p>
+        </header>
+        <button class="ghost" id="theme-toggle" title="Toggle theme">
+          &#9681;
+        </button>
+      </div>
+
+      <div class="card">
+        <label for="query">Question</label>
+        <textarea
+          id="query"
+          placeholder="e.g. Which countries have the most recruiting trials for type 2 diabetes?"
+        ></textarea>
+        <div class="examples" id="examples"></div>
+        <div class="filters">
+          <div>
+            <label for="drug">Drug</label
+            ><input id="drug" placeholder="optional" />
+          </div>
+          <div>
+            <label for="condition">Condition</label
+            ><input id="condition" placeholder="optional" />
+          </div>
+          <div>
+            <label for="sponsor">Sponsor</label
+            ><input id="sponsor" placeholder="optional" />
+          </div>
+          <div>
+            <label for="phase">Phase</label>
+            <select id="phase">
+              <option value="">Any</option>
+              <option>EARLY_PHASE1</option>
+              <option>PHASE1</option>
+              <option>PHASE2</option>
+              <option>PHASE3</option>
+              <option>PHASE4</option>
+            </select>
+          </div>
+          <div>
+            <label for="start_year">From year</label
+            ><input id="start_year" type="number" placeholder="optional" />
+          </div>
+          <div>
+            <label for="end_year">To year</label
+            ><input id="end_year" type="number" placeholder="optional" />
+          </div>
+        </div>
+        <div class="row">
+          <button id="run">Visualize</button>
+          <span class="hint" id="status"></span>
+        </div>
+        <div id="needs-question" class="hidden" style="margin-top: 14px">
+          <p class="hint" style="margin: 0 0 9px; color: var(--text-secondary)">
+            The filters below narrow <em>which</em> trials are retrieved; the
+            question decides <em>what to show</em> about them. Pick one of
+            these, or write your own:
+          </p>
+          <div class="examples" id="suggestions"></div>
+        </div>
+      </div>
+
+      <div id="error-card" class="card error hidden">
+        <h3 id="error-title"></h3>
+        <p
+          id="error-message"
+          style="margin: 0; color: var(--text-secondary); font-size: 14px"
+        ></p>
+        <p
+          id="error-remedy"
+          style="margin: 7px 0 0; color: var(--text-muted); font-size: 13px"
+        ></p>
+      </div>
+
+      <div id="result" class="hidden">
+        <div class="card">
+          <h2 class="viz-title" id="viz-title"></h2>
+          <p class="subtitle" id="viz-subtitle"></p>
+          <div id="legend" class="legend"></div>
+          <div class="chart-holder" id="chart-holder">
+            <canvas id="chart"></canvas>
+          </div>
+          <canvas id="network-canvas" class="hidden"></canvas>
+          <div id="kpi-holder" class="hidden"></div>
+          <div id="table-holder" class="hidden"></div>
+          <p class="hint" id="chart-hint"></p>
+        </div>
+
+        <div class="card meta">
+          <div class="meta-grid">
+            <div>
+              <h3>Interpretation</h3>
+              <p id="m-interp"></p>
+              <h3 style="margin-top: 14px">What one unit means</h3>
+              <p id="m-counting"></p>
+            </div>
+            <div>
+              <h3>Assumptions</h3>
+              <ul id="m-assumptions"></ul>
+            </div>
+            <div>
+              <h3>Coverage</h3>
+              <p id="m-coverage"></p>
+              <h3 style="margin-top: 14px">Filters applied</h3>
+              <p id="m-filters"></p>
+            </div>
+          </div>
+          <div id="m-warnings-box" class="warn hidden" style="margin-top: 18px">
+            <h3>Notes</h3>
+            <ul id="m-warnings"></ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="row" style="margin: 0 0 14px">
+            <button class="ghost" id="toggle-table">Data table</button>
+            <button class="ghost" id="toggle-json">Raw JSON</button>
+            <button class="ghost" id="toggle-requests">API queries used</button>
+          </div>
+          <div id="table-box" class="hidden panel"></div>
+          <pre id="json-box" class="hidden panel"></pre>
+          <div id="requests-box" class="hidden panel"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="drawer" id="drawer">
+      <div class="row" style="margin: 0 0 14px; justify-content: space-between">
+        <strong id="drawer-title">Sources</strong>
+        <button class="ghost" id="drawer-close">Close</button>
+      </div>
+      <p class="hint" id="drawer-sub" style="margin-top: 0"></p>
+      <div id="drawer-body"></div>
+    </div>
+
+    <script>
+      const EXAMPLES = [
+        "How has the number of trials for Keytruda changed per year since 2015?",
+        "How are melanoma trials distributed across phases?",
+        "Compare trial phases for pembrolizumab versus nivolumab",
+        "Which countries have the most recruiting trials for type 2 diabetes?",
+        "Show a network of sponsors and drugs for multiple myeloma trials",
+        "Which drugs are most often studied together in breast cancer combination trials?",
+        "How many trials is Pfizer running for lung cancer?",
+      ];
+
+      const css = (n) =>
+        getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+      const SERIES = () =>
+        [1, 2, 3, 4, 5, 6, 7, 8].map((i) => css(`--series-${i}`));
+      let chart = null,
+        lastResponse = null,
+        netState = null;
+
+      /* ---------- theme ---------- */
+      const themeToggle = document.getElementById("theme-toggle");
+      themeToggle.onclick = () => {
+        const dark =
+          document.documentElement.getAttribute("data-theme") === "dark" ||
+          (!document.documentElement.getAttribute("data-theme") &&
+            matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.setAttribute(
+          "data-theme",
+          dark ? "light" : "dark",
+        );
+        if (lastResponse) render(lastResponse);
+      };
+
+      /* ---------- examples ---------- */
+      const exBox = document.getElementById("examples");
+      EXAMPLES.forEach((text) => {
+        const b = document.createElement("button");
+        b.className = "chip";
+        b.textContent = text.length > 52 ? text.slice(0, 50) + "…" : text;
+        b.title = text;
+        b.onclick = () => {
+          document.getElementById("query").value = text;
+          run();
+        };
+        exBox.appendChild(b);
+      });
+
+      /* ---------- request ---------- */
+      /* Read the structured filter inputs into a request body. */
+      function collectFilters() {
+        const body = {};
+        const map = {
+          drug: "drug_name",
+          condition: "condition",
+          sponsor: "sponsor",
+        };
+        for (const [id, field] of Object.entries(map)) {
+          const v = document.getElementById(id).value.trim();
+          if (v) body[field] = v;
+        }
+        const phase = document.getElementById("phase").value;
+        if (phase) body.trial_phase = [phase];
+        for (const y of ["start_year", "end_year"]) {
+          const v = document.getElementById(y).value;
+          if (v) body[y] = Number(v);
+        }
+        return body;
+      }
+
+      /* Describe the filtered population in prose, for use inside a suggested question. */
+      function describeSubject(f) {
+        const parts = [];
+        parts.push(f.drug_name ? `${f.drug_name} trials` : "trials");
+        if (f.condition) parts.push(`for ${f.condition}`);
+        if (f.sponsor) parts.push(`sponsored by ${f.sponsor}`);
+        return parts.join(" ");
+      }
+
+      /* Offer questions that are still interesting given what the filters already pin down —
+   no point suggesting a phase breakdown when a single phase is already selected. */
+      function suggestedQuestions(f) {
+        const subject = describeSubject(f);
+        const out = [
+          `How many ${subject} are there, and what is their recruitment status?`,
+          `How has the number of ${subject} changed per year?`,
+          `Which countries have the most ${subject}?`,
+        ];
+        if (!f.trial_phase)
+          out.push(`How are ${subject} distributed across phases?`);
+        if (!f.sponsor) out.push(`Which sponsors run the most ${subject}?`);
+        if (!f.drug_name)
+          out.push(`Which drugs are most often studied in ${subject}?`);
+        return out.slice(0, 4);
+      }
+
+      function promptForQuestion() {
+        const f = collectFilters();
+        const box = document.getElementById("needs-question");
+        const list = document.getElementById("suggestions");
+        list.innerHTML = "";
+        suggestedQuestions(f).forEach((q) => {
+          const b = document.createElement("button");
+          b.className = "chip";
+          b.textContent = q;
+          b.onclick = () => {
+            document.getElementById("query").value = q;
+            box.classList.add("hidden");
+            run();
+          };
+          list.appendChild(b);
+        });
+        box.classList.remove("hidden");
+        document.getElementById("status").textContent =
+          "A question is required.";
+        document.getElementById("query").focus();
+      }
+
+      async function run() {
+        const query = document.getElementById("query").value.trim();
+        if (query.length < 3) {
+          promptForQuestion();
+          return;
+        }
+        document.getElementById("needs-question").classList.add("hidden");
+
+        const body = { query, options: { citations_per_datum: 3 } };
+        Object.assign(body, collectFilters());
+
+        const btn = document.getElementById("run"),
+          status = document.getElementById("status");
+        btn.disabled = true;
+        status.innerHTML =
+          '<span class="spinner"></span>Planning and retrieving trials…';
+        document.getElementById("error-card").classList.add("hidden");
+
+        try {
+          const res = await fetch("/api/v1/visualize", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+          });
+          const data = await res.json();
+          if (!res.ok) {
+            showError(data);
+            return;
+          }
+          lastResponse = data;
+          // Reveal the container *before* rendering: the network canvas measures its own
+          // width, which is 0 while an ancestor is display:none.
+          document.getElementById("result").classList.remove("hidden");
+          render(data);
+          status.textContent = "";
+        } catch (err) {
+          showError({ error: "network_error", message: String(err) });
+        } finally {
+          btn.disabled = false;
+          if (status.querySelector(".spinner")) status.textContent = "";
+        }
+      }
+      document.getElementById("run").onclick = run;
+      document.getElementById("query").addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) run();
+      });
+
+      function showError(data) {
+        document.getElementById("status").textContent = "";
+        document.getElementById("error-title").textContent = (
+          data.error || "error"
+        ).replace(/_/g, " ");
+        document.getElementById("error-message").textContent =
+          data.message || "";
+        document.getElementById("error-remedy").textContent = data.remedy || "";
+        document.getElementById("error-card").classList.remove("hidden");
+      }
+
+      /* ---------- render ---------- */
+      function render(data) {
+        const viz = data.visualization,
+          meta = data.meta;
+        document.getElementById("viz-title").textContent = viz
+          ? viz.title
+          : "No matching trials";
+        document.getElementById("viz-subtitle").textContent = viz
+          ? viz.subtitle || ""
+          : "";
+
+        renderMeta(meta);
+        document.getElementById("json-box").textContent = JSON.stringify(
+          data,
+          null,
+          2,
+        );
+        renderRequests(meta.ctgov_requests || []);
+
+        if (chart) {
+          chart.destroy();
+          chart = null;
+        }
+        netState = null;
+        document.getElementById("chart-holder").classList.add("hidden");
+        document.getElementById("network-canvas").classList.add("hidden");
+        document.getElementById("kpi-holder").classList.add("hidden");
+        document.getElementById("table-holder").classList.add("hidden");
+        document.getElementById("legend").innerHTML = "";
+        document.getElementById("chart-hint").textContent = "";
+
+        if (!viz) {
+          renderTable(null, "table-box");
+          setPanel(null);
+          return;
+        }
+
+        const isTableViz = viz.type === "table";
+
+        if (viz.type === "network_graph") renderNetwork(viz);
+        else if (viz.type === "kpi") renderKpi(viz, data);
+        else if (isTableViz) {
+          // The table *is* the visualization here, so it belongs in the result card
+          // alongside every other chart type — not hidden behind a disclosure button.
+          renderTable(viz, "table-holder");
+          document.getElementById("table-holder").classList.remove("hidden");
+        } else renderChart(viz, meta);
+
+        // The bottom panel holds the underlying rows for every visualization, table
+        // included. It duplicates the card in that one case, but a control that vanishes
+        // for a single chart type is more confusing than a redundant one.
+        renderTable(viz, "table-box");
+        setPanel(null);
+      }
+
+      function renderMeta(meta) {
+        document.getElementById("m-interp").textContent = meta.interpretation;
+        document.getElementById("m-counting").textContent =
+          meta.counting_semantics;
+
+        const ul = document.getElementById("m-assumptions");
+        ul.innerHTML = "";
+        (meta.assumptions || []).forEach((a) => {
+          const li = document.createElement("li");
+          li.textContent = a;
+          ul.appendChild(li);
+        });
+        if (!ul.children.length) ul.innerHTML = "<li>None recorded.</li>";
+
+        const c = meta.coverage;
+        let cov = `Analyzed ${c.analyzed.toLocaleString()} of ${c.total_matching.toLocaleString()} matching trials`;
+        cov +=
+          c.strategy === "exact_counts"
+            ? " — bucket totals came directly from the API and are exact."
+            : c.truncated
+              ? " (retrieval cap reached)."
+              : " — complete.";
+        if (c.records_missing_dimension)
+          cov += ` ${c.records_missing_dimension.toLocaleString()} did not report the grouping field.`;
+        document.getElementById("m-coverage").textContent = cov;
+
+        const f = meta.filters_applied || { user: {}, inferred: {} };
+        const parts = [];
+        if (Object.keys(f.user || {}).length)
+          parts.push("From your inputs: " + JSON.stringify(f.user));
+        if (Object.keys(f.inferred || {}).length)
+          parts.push("Inferred: " + JSON.stringify(f.inferred));
+        document.getElementById("m-filters").textContent =
+          parts.join("  ·  ") || "None.";
+
+        const wbox = document.getElementById("m-warnings-box"),
+          wul = document.getElementById("m-warnings");
+        wul.innerHTML = "";
+        (meta.warnings || []).forEach((w) => {
+          const li = document.createElement("li");
+          li.textContent = w;
+          wul.appendChild(li);
+        });
+        wbox.classList.toggle("hidden", !(meta.warnings || []).length);
+      }
+
+      /* Chart.js theme-aware defaults. */
+      /* Animation is skipped for viewers who ask for reduced motion, and for ?static=1
+   (used when capturing screenshots, where an in-flight animation renders as a blank
+   canvas). */
+      const STATIC_RENDER =
+        new URLSearchParams(location.search).get("static") === "1" ||
+        matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function baseOptions(xTitle, yTitle, onClick) {
+        return {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: STATIC_RENDER ? false : { duration: 320 },
+          onClick,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: css("--surface-1"),
+              titleColor: css("--text-primary"),
+              bodyColor: css("--text-secondary"),
+              borderColor: css("--border"),
+              borderWidth: 1,
+              padding: 10,
+              displayColors: true,
+              boxPadding: 4,
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: !!xTitle,
+                text: xTitle,
+                color: css("--text-muted"),
+                font: { size: 11 },
+              },
+              grid: { display: false },
+              border: { color: css("--baseline") },
+              ticks: {
+                color: css("--text-muted"),
+                font: { size: 11 },
+                maxRotation: 45,
+              },
+            },
+            y: {
+              beginAtZero: true,
+              title: {
+                display: !!yTitle,
+                text: yTitle,
+                color: css("--text-muted"),
+                font: { size: 11 },
+              },
+              grid: { color: css("--grid"), drawTicks: false },
+              border: { display: false },
+              ticks: {
+                color: css("--text-muted"),
+                font: { size: 11 },
+                precision: 0,
+              },
+            },
+          },
+        };
+      }
+
+      function renderChart(viz, meta) {
+        const holder = document.getElementById("chart-holder");
+        holder.classList.remove("hidden");
+        const enc = viz.encoding,
+          rows = viz.data;
+        // Horizontal bars need ~26px per row for their labels; vertical charts use a fixed height.
+        const needsTallPlot =
+          viz.type === "geo_map" ||
+          (viz.type !== "histogram" && rows.length > 14);
+        holder.style.height = needsTallPlot
+          ? Math.max(420, Math.min(rows.length * 26 + 70, 1100)) + "px"
+          : "420px";
+        const xField = enc.x.field,
+          yField = enc.y.field;
+        const seriesField = enc.series ? enc.series.field : null;
+        const colors = SERIES();
+
+        let config;
+
+        if (viz.type === "scatter_plot") {
+          const colorField = enc.color ? enc.color.field : null;
+          const groups = colorField
+            ? [...new Set(rows.map((r) => r[colorField]))]
+            : ["All trials"];
+          config = {
+            type: "scatter",
+            data: {
+              datasets: groups.map((g, i) => ({
+                label: String(g),
+                data: rows
+                  .filter((r) => !colorField || r[colorField] === g)
+                  .map((r) => ({ x: r[xField], y: r[yField], row: r })),
+                backgroundColor: colors[i % 8] + "cc",
+                borderColor: css("--surface-1"),
+                borderWidth: 2,
+                pointRadius: 5,
+                pointHoverRadius: 8,
+              })),
+            },
+            options: (() => {
+              const o = baseOptions(enc.x.title, enc.y.title, (e, els) =>
+                openCitationsFromChart(els, rows, viz),
+              );
+              o.scales.y.beginAtZero = false;
+              o.scales.x.beginAtZero = false;
+              o.scales.x.type = "linear";
+              o.plugins.tooltip.callbacks = {
+                title: (items) =>
+                  items[0].raw.row.label || items[0].raw.row.nct_id,
+                label: (item) =>
+                  `${enc.x.title}: ${item.parsed.x} · ${enc.y.title}: ${item.parsed.y}`,
+              };
+              return o;
+            })(),
+          };
+          if (groups.length > 1) buildLegend(groups, colors);
+        } else if (seriesField) {
+          const categories = [...new Set(rows.map((r) => r[xField]))];
+          const seriesNames = [...new Set(rows.map((r) => r[seriesField]))];
+          config = {
+            type: "bar",
+            data: {
+              labels: categories,
+              datasets: seriesNames.map((name, i) => ({
+                label: String(name),
+                data: categories.map((c) => {
+                  const hit = rows.find(
+                    (r) => r[xField] === c && r[seriesField] === name,
+                  );
+                  return hit ? hit[yField] : 0;
+                }),
+                backgroundColor: colors[i % 8],
+                borderRadius: {
+                  topLeft: 4,
+                  topRight: 4,
+                  bottomLeft: 0,
+                  bottomRight: 0,
+                },
+                borderSkipped: false,
+                // A 2px surface gap keeps adjacent fills from reading as one mark.
+                borderColor: css("--surface-1"),
+                borderWidth: { top: 0, left: 1, right: 1, bottom: 0 },
+              })),
+            },
+            options: (() => {
+              const o = baseOptions(enc.x.title, enc.y.title, (e, els) =>
+                openCitationsGrouped(els, rows, viz, categories, seriesNames),
+              );
+              if (viz.type === "stacked_bar_chart") {
+                o.scales.x.stacked = true;
+                o.scales.y.stacked = true;
+              }
+              return o;
+            })(),
+          };
+          buildLegend(seriesNames, colors);
+        } else if (viz.type === "time_series") {
+          config = {
+            type: "line",
+            data: {
+              labels: rows.map((r) => r[xField]),
+              datasets: [
+                {
+                  label: enc.y.title,
+                  data: rows.map((r) => r[yField]),
+                  borderColor: colors[0],
+                  backgroundColor: colors[0] + "1f",
+                  borderWidth: 2,
+                  pointRadius: 4,
+                  pointHoverRadius: 8,
+                  tension: 0.25,
+                  fill: true,
+                  pointBackgroundColor: colors[0],
+                  pointBorderColor: css("--surface-1"),
+                  pointBorderWidth: 2,
+                },
+              ],
+            },
+            options: (() => {
+              const o = baseOptions(enc.x.title, enc.y.title, (e, els) =>
+                openCitationsFromChart(els, rows, viz),
+              );
+              o.interaction = { mode: "index", intersect: false };
+              return o;
+            })(),
+          };
+        } else {
+          // bar_chart, histogram, and geo_map (rendered as ranked bars; see chart-hint).
+          const horizontal =
+            viz.type === "geo_map" ||
+            // A histogram is always vertical: turning a distribution on its side
+            // makes the shape much harder to read.
+            (viz.type !== "histogram" && rows.length > 14);
+          config = {
+            type: "bar",
+            data: {
+              labels: rows.map((r) => r[xField]),
+              datasets: [
+                {
+                  label: enc.y.title,
+                  data: rows.map((r) => r[yField]),
+                  backgroundColor:
+                    viz.type === "geo_map" ? css("--seq-400") : colors[0],
+                  borderRadius: horizontal
+                    ? { topRight: 4, bottomRight: 4, topLeft: 0, bottomLeft: 0 }
+                    : {
+                        topLeft: 4,
+                        topRight: 4,
+                        bottomLeft: 0,
+                        bottomRight: 0,
+                      },
+                  borderSkipped: false,
+                  categoryPercentage: viz.type === "histogram" ? 1.0 : 0.82,
+                  barPercentage: viz.type === "histogram" ? 0.98 : 0.9,
+                },
+              ],
+            },
+            options: (() => {
+              const o = baseOptions(enc.x.title, enc.y.title, (e, els) =>
+                openCitationsFromChart(els, rows, viz),
+              );
+              if (horizontal) {
+                o.indexAxis = "y";
+                [o.scales.x, o.scales.y] = [o.scales.y, o.scales.x];
+                o.scales.y.grid = { display: false };
+                o.scales.x.grid = { color: css("--grid"), drawTicks: false };
+                // Every bar must be labelled. Chart.js drops alternate ticks when they do not
+                // fit, which leaves unlabelled bars, so the plot is sized to the row count
+                // instead of letting labels be skipped.
+                o.scales.y.ticks.autoSkip = false;
+                o.scales.y.ticks.maxRotation = 0;
+              }
+              if (viz.type === "geo_map") {
+                o.plugins.tooltip.callbacks = {
+                  afterLabel: (item) => {
+                    const iso = rows[item.dataIndex].country_iso3;
+                    return iso
+                      ? `ISO3: ${iso}`
+                      : "No ISO3 code (dissolved state)";
+                  },
+                };
+              }
+              return o;
+            })(),
+          };
+          if (viz.type === "geo_map") {
+            document.getElementById("chart-hint").textContent =
+              "Shown as ranked bars. The response also carries an ISO3 code per row " +
+              "(encoding.location), so the same payload drives a choropleth without changes.";
+          }
+        }
+
+        chart = new Chart(document.getElementById("chart"), config);
+        if (rows.some((r) => (r.citations || []).length)) {
+          document.getElementById("chart-hint").textContent +=
+            (document.getElementById("chart-hint").textContent ? " " : "") +
+            "Click any mark to see its source trials.";
+        }
+      }
+
+      function buildLegend(names, colors) {
+        const box = document.getElementById("legend");
+        box.innerHTML = "";
+        names.forEach((n, i) => {
+          const s = document.createElement("span");
+          s.innerHTML = `<i class="swatch" style="background:${colors[i % 8]}"></i>${n}`;
+          box.appendChild(s);
+        });
+      }
+
+      function renderKpi(viz, data) {
+        const holder = document.getElementById("kpi-holder");
+        holder.classList.remove("hidden");
+        const rows = viz.data,
+          head = rows[0],
+          rest = rows.slice(1);
+        const measure = data.meta.measure
+          ? data.meta.measure.id
+          : "trial_count";
+        holder.innerHTML = `
+    <div style="padding:18px 0 4px">
+      <div class="stat" style="font-size:52px;line-height:1.05">${(head[measure] ?? 0).toLocaleString()}</div>
+      <div style="color:var(--text-secondary);font-size:14px;margin-top:2px">${head.label} (${head.unit})</div>
+    </div>`;
+        if (rest.length) {
+          const t = document.createElement("table");
+          t.style.marginTop = "16px";
+          t.innerHTML = `<thead><tr><th>Breakdown</th><th class="num">${head.unit}</th><th class="num">Share</th></tr></thead>`;
+          const tb = document.createElement("tbody");
+          rest.forEach((r, i) => {
+            const tr = document.createElement("tr");
+            tr.className = "clickable";
+            tr.innerHTML = `<td>${r.label}</td><td class="num">${(r[measure] ?? 0).toLocaleString()}</td>
+                      <td class="num">${r.share_pct != null ? r.share_pct + "%" : "—"}</td>`;
+            tr.onclick = () =>
+              openDrawer(
+                r.label,
+                r.citations || [],
+                r.contributing_trial_count,
+              );
+            tb.appendChild(tr);
+          });
+          t.appendChild(tb);
+          holder.appendChild(t);
+        }
+      }
+
+      /* ---------- network: simple force-directed layout on canvas ---------- */
+      function renderNetwork(viz) {
+        const cv = document.getElementById("network-canvas");
+        cv.classList.remove("hidden");
+        const dpr = window.devicePixelRatio || 1;
+        const W = cv.clientWidth || cv.parentElement.clientWidth || 900,
+          H = 540;
+        cv.width = W * dpr;
+        cv.height = H * dpr;
+        const ctx = cv.getContext("2d");
+        ctx.scale(dpr, dpr);
+
+        const groups = [...new Set(viz.nodes.map((n) => n.group))];
+        const colors = SERIES();
+        const groupLabels = {};
+        viz.nodes.forEach((n) => {
+          groupLabels[n.group] = n.group_label || n.group;
+        });
+        if (groups.length > 1)
+          buildLegend(
+            groups.map((g) => groupLabels[g]),
+            colors,
+          );
+
+        const maxDeg = Math.max(1, ...viz.nodes.map((n) => n.degree));
+        const maxW = Math.max(1, ...viz.edges.map((e) => e.weight));
+        const nodes = viz.nodes.map((n, i) => ({
+          ...n,
+          x:
+            W / 2 +
+            Math.cos((i / viz.nodes.length) * 6.283) * Math.min(W, H) * 0.32 +
+            (Math.random() - 0.5) * 20,
+          y:
+            H / 2 +
+            Math.sin((i / viz.nodes.length) * 6.283) * Math.min(W, H) * 0.32 +
+            (Math.random() - 0.5) * 20,
+          vx: 0,
+          vy: 0,
+          r: 5 + 11 * Math.sqrt(n.degree / maxDeg),
+          color: colors[groups.indexOf(n.group) % 8],
+        }));
+        const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
+        // Direct-label only the highest-degree nodes; labelling all 55 is illegible.
+        const labelled = new Set(
+          [...nodes]
+            .sort((a, b) => b.degree - a.degree)
+            .slice(0, 14)
+            .map((n) => n.id),
+        );
+        const edges = viz.edges.filter((e) => byId[e.source] && byId[e.target]);
+
+        let hover = null;
+        netState = { nodes, edges, byId };
+
+        for (let step = 0; step < 450; step++) {
+          // Repulsion between all pairs.
+          for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+              const a = nodes[i],
+                b = nodes[j];
+              let dx = b.x - a.x,
+                dy = b.y - a.y;
+              let d2 = dx * dx + dy * dy || 0.01;
+              const f = 5200 / d2;
+              const d = Math.sqrt(d2);
+              const ux = dx / d,
+                uy = dy / d;
+              a.vx -= ux * f;
+              a.vy -= uy * f;
+              b.vx += ux * f;
+              b.vy += uy * f;
+            }
+          }
+          // Attraction along edges, stronger for heavier links.
+          edges.forEach((e) => {
+            const a = byId[e.source],
+              b = byId[e.target];
+            const dx = b.x - a.x,
+              dy = b.y - a.y;
+            const d = Math.sqrt(dx * dx + dy * dy) || 0.01;
+            const f = (d - 115) * 0.011 * (0.4 + 0.6 * (e.weight / maxW));
+            const ux = dx / d,
+              uy = dy / d;
+            a.vx += ux * f;
+            a.vy += uy * f;
+            b.vx -= ux * f;
+            b.vy -= uy * f;
+          });
+          nodes.forEach((n) => {
+            n.vx += (W / 2 - n.x) * 0.006;
+            n.vy += (H / 2 - n.y) * 0.006; // gentle centering
+            n.x += n.vx *= 0.82;
+            n.y += n.vy *= 0.82;
+            n.x = Math.max(n.r + 4, Math.min(W - n.r - 4, n.x));
+            n.y = Math.max(n.r + 4, Math.min(H - n.r - 4, n.y));
+          });
+        }
+
+        function draw() {
+          ctx.clearRect(0, 0, W, H);
+          edges.forEach((e) => {
+            const a = byId[e.source],
+              b = byId[e.target];
+            const lit =
+              hover && (e.source === hover.id || e.target === hover.id);
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = lit ? css("--series-1") : css("--baseline");
+            ctx.globalAlpha = lit ? 0.85 : hover ? 0.12 : 0.38;
+            ctx.lineWidth = 0.6 + 3.4 * (e.weight / maxW);
+            ctx.stroke();
+          });
+          ctx.globalAlpha = 1;
+          nodes.forEach((n) => {
+            const dim =
+              hover &&
+              n !== hover &&
+              !edges.some(
+                (e) =>
+                  (e.source === hover.id && e.target === n.id) ||
+                  (e.target === hover.id && e.source === n.id),
+              );
+            ctx.globalAlpha = dim ? 0.25 : 1;
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, 6.2832);
+            ctx.fillStyle = n.color;
+            ctx.fill();
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = css("--surface-1");
+            ctx.stroke(); // 2px surface ring
+            if (labelled.has(n.id) || n === hover) {
+              ctx.globalAlpha = dim ? 0.3 : 1;
+              ctx.font = "600 11px " + css("--font");
+              ctx.textAlign = "center";
+              const label =
+                n.label.length > 20 ? n.label.slice(0, 18) + "…" : n.label;
+              ctx.lineWidth = 3;
+              ctx.strokeStyle = css("--surface-1");
+              ctx.strokeText(label, n.x, n.y - n.r - 5); // halo, so text survives crossing edges
+              ctx.fillStyle = css("--text-primary");
+              ctx.fillText(label, n.x, n.y - n.r - 5);
+            }
+          });
+          ctx.globalAlpha = 1;
+        }
+        draw();
+
+        cv.onmousemove = (ev) => {
+          const rect = cv.getBoundingClientRect();
+          const mx = ev.clientX - rect.left,
+            my = ev.clientY - rect.top;
+          const found = nodes.find(
+            (n) => (n.x - mx) ** 2 + (n.y - my) ** 2 < (n.r + 5) ** 2,
+          );
+          if (found !== hover) {
+            hover = found;
+            draw();
+            cv.style.cursor = found ? "pointer" : "default";
+          }
+        };
+        cv.onmouseleave = () => {
+          hover = null;
+          draw();
+        };
+        cv.onclick = (ev) => {
+          const rect = cv.getBoundingClientRect();
+          const mx = ev.clientX - rect.left,
+            my = ev.clientY - rect.top;
+          const found = nodes.find(
+            (n) => (n.x - mx) ** 2 + (n.y - my) ** 2 < (n.r + 5) ** 2,
+          );
+          if (found) {
+            openDrawer(
+              `${found.label} — ${groupLabels[found.group]}`,
+              found.citations || [],
+              found.trial_count,
+            );
+            return;
+          }
+          // Otherwise test for a click near an edge.
+          for (const e of edges) {
+            const a = byId[e.source],
+              b = byId[e.target];
+            const t = Math.max(
+              0,
+              Math.min(
+                1,
+                ((mx - a.x) * (b.x - a.x) + (my - a.y) * (b.y - a.y)) /
+                  ((b.x - a.x) ** 2 + (b.y - a.y) ** 2 || 1),
+              ),
+            );
+            const px = a.x + t * (b.x - a.x),
+              py = a.y + t * (b.y - a.y);
+            if ((px - mx) ** 2 + (py - my) ** 2 < 25) {
+              openDrawer(
+                `${a.label} ↔ ${b.label}`,
+                e.citations || [],
+                e.weight,
+              );
+              return;
+            }
+          }
+        };
+        document.getElementById("chart-hint").textContent =
+          `${viz.nodes.length} nodes, ${viz.edges.length} edges. Node size is degree; edge thickness is
+     the number of trials supporting the link. Hover to isolate, click a node or edge for sources.`;
+      }
+
+      /* ---------- citations ---------- */
+      function openCitationsFromChart(elements, rows, viz) {
+        if (!elements.length) return;
+        const row = rows[elements[0].index];
+        if (!row) return;
+        const label = row[viz.encoding.x.field] ?? row.label ?? row.nct_id;
+        openDrawer(
+          String(label),
+          row.citations || [],
+          row.contributing_trial_count,
+        );
+      }
+      function openCitationsGrouped(
+        elements,
+        rows,
+        viz,
+        categories,
+        seriesNames,
+      ) {
+        if (!elements.length) return;
+        const el = elements[0];
+        const cat = categories[el.index],
+          series = seriesNames[el.datasetIndex];
+        const row = rows.find(
+          (r) =>
+            r[viz.encoding.x.field] === cat &&
+            r[viz.encoding.series.field] === series,
+        );
+        if (row)
+          openDrawer(
+            `${cat} — ${series}`,
+            row.citations || [],
+            row.contributing_trial_count,
+          );
+      }
+
+      function openDrawer(title, citations, total) {
+        document.getElementById("drawer-title").textContent = title;
+        document.getElementById("drawer-sub").textContent = citations.length
+          ? `Showing ${citations.length} of ${(total ?? citations.length).toLocaleString()} contributing trials. ` +
+            `Each excerpt is the exact value returned by the API.`
+          : "No citations for this datum.";
+        const body = document.getElementById("drawer-body");
+        body.innerHTML = "";
+        citations.forEach((c) => {
+          const d = document.createElement("div");
+          d.className = "cite";
+          d.innerHTML = `
+      <a href="${c.url}" target="_blank" rel="noopener">${c.nct_id}</a>
+      <div class="excerpt">${escapeHtml(c.excerpt)}</div>
+      <p class="ctx">${escapeHtml(c.context)}</p>
+      <p class="field">${escapeHtml(c.field)}</p>`;
+          body.appendChild(d);
+        });
+        document.getElementById("drawer").classList.add("open");
+      }
+      document.getElementById("drawer-close").onclick = () =>
+        document.getElementById("drawer").classList.remove("open");
+
+      function escapeHtml(s) {
+        return String(s).replace(
+          /[&<>"']/g,
+          (m) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[m],
+        );
+      }
+
+      /* ---------- table / json / requests ---------- */
+      /* Human column headings.
+
+         The encoding already names each channel ("Lead Sponsor", "Number of Trials"), so
+         those titles are reused rather than showing raw row keys. Anyone who wants the
+         literal JSON keys has the Raw JSON panel. */
+      function columnLabel(key, encoding = {}) {
+        for (const channel of ["x", "y", "series", "color", "size"]) {
+          if (encoding[channel] && encoding[channel].field === key) {
+            return encoding[channel].title;
+          }
+        }
+        const known = {
+          share_pct: "Share (%)",
+          contributing_trial_count: "Trials Behind This",
+          nct_id: "NCT ID",
+          bin: "Range",
+          bin_start: "From",
+          bin_end: "To",
+          trial_count: "Number of Trials",
+          country_iso3: "ISO3",
+          source: "From",
+          target: "To",
+          weight: "Trials in Common",
+          degree: "Connections",
+          group_label: "Type",
+        };
+        return (
+          known[key] ||
+          key.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase())
+        );
+      }
+
+      function renderTable(viz, boxId = "table-box") {
+        const box = document.getElementById(boxId);
+        box.innerHTML = "";
+        if (!viz) {
+          box.textContent = "No data.";
+          return;
+        }
+
+        const rows =
+          viz.type === "network_graph"
+            ? viz.edges.map((e) => ({
+                source: e.source,
+                target: e.target,
+                weight: e.weight,
+              }))
+            : viz.data;
+        if (!rows.length) {
+          box.textContent = "No rows.";
+          return;
+        }
+
+        let cols = [...new Set(rows.flatMap(Object.keys))].filter(
+          (k) => k !== "citations",
+        );
+
+        // `contributing_trial_count` is the number of trials behind a datum. When the
+        // measure already *is* a trial count the two columns are identical, and showing
+        // both reads as a bug rather than as extra information.
+        const measureField = viz.encoding?.y?.field;
+        if (
+          measureField &&
+          cols.includes("contributing_trial_count") &&
+          rows.every((r) => r.contributing_trial_count === r[measureField])
+        ) {
+          cols = cols.filter((c) => c !== "contributing_trial_count");
+        }
+
+        const t = document.createElement("table");
+        t.innerHTML = `<thead><tr>${cols
+          .map((c) => `<th>${escapeHtml(columnLabel(c, viz.encoding))}</th>`)
+          .join("")}</tr></thead>`;
+        const tb = document.createElement("tbody");
+        rows.forEach((r, i) => {
+          const tr = document.createElement("tr");
+          if (r.citations) {
+            tr.className = "clickable";
+            tr.onclick = () =>
+              openDrawer(
+                String(r[cols[0]]),
+                r.citations,
+                r.contributing_trial_count,
+              );
+          }
+          tr.innerHTML = cols
+            .map((c) => {
+              const v = r[c];
+              const num = typeof v === "number";
+              return `<td class="${num ? "num" : ""}">${v === null || v === undefined ? "—" : escapeHtml(num ? v.toLocaleString() : v)}</td>`;
+            })
+            .join("");
+          tb.appendChild(tr);
+        });
+        t.appendChild(tb);
+        box.appendChild(t);
+      }
+
+      function renderRequests(requests) {
+        const box = document.getElementById("requests-box");
+        box.innerHTML = `<p class="hint" style="margin-top:0">These are the exact queries sent to
+    ClinicalTrials.gov. Open one to reproduce the underlying data by hand.</p>`;
+        requests.slice(0, 12).forEach((params) => {
+          const url =
+            "https://clinicaltrials.gov/api/v2/studies?" +
+            new URLSearchParams(params).toString();
+          const p = document.createElement("p");
+          p.style.cssText =
+            "margin:0 0 8px;font-size:12px;word-break:break-all";
+          p.innerHTML = `<a href="${url}" target="_blank" rel="noopener" style="color:var(--series-1)">${escapeHtml(url)}</a>`;
+          box.appendChild(p);
+        });
+        if (requests.length > 12) {
+          const more = document.createElement("p");
+          more.className = "hint";
+          more.textContent = `…and ${requests.length - 12} more.`;
+          box.appendChild(more);
+        }
+      }
+
+      /* Disclosure panels beneath the result.
+         These previously called classList.toggle() directly, which drifted out of sync with
+         the buttons: render() never reset them, and the `table` branch un-hid one behind the
+         button's back. A click after a new query could therefore close a panel the user
+         believed was closed, which reads as "nothing happened". State now lives in one
+         variable, the buttons report it via aria-expanded, and one panel is open at a time. */
+      const PANELS = {
+        table: "table-box",
+        json: "json-box",
+        requests: "requests-box",
+      };
+      let openPanel = null;
+
+      function setPanel(name) {
+        openPanel = name;
+        for (const [key, id] of Object.entries(PANELS)) {
+          const isOpen = key === name;
+          document.getElementById(id).classList.toggle("hidden", !isOpen);
+          document
+            .getElementById("toggle-" + key)
+            .setAttribute("aria-expanded", String(isOpen));
+        }
+        if (name) {
+          // The panels sit at the bottom of a long page, so without this the content can
+          // open entirely below the viewport and look like a no-op.
+          document
+            .getElementById(PANELS[name])
+            .scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      }
+
+      for (const key of Object.keys(PANELS)) {
+        const button = document.getElementById("toggle-" + key);
+        button.setAttribute("aria-expanded", "false");
+        button.onclick = () => setPanel(openPanel === key ? null : key);
+      }
+
+      /* Deep links: /?q=...&drug=...&theme=dark runs the question on load, so a result can be
+   shared or bookmarked. Also what the screenshot tooling drives. */
+      (function initFromUrl() {
+        const p = new URLSearchParams(location.search);
+        if (p.get("theme"))
+          document.documentElement.setAttribute("data-theme", p.get("theme"));
+        const q = p.get("q");
+        if (!q) return;
+        document.getElementById("query").value = q;
+        for (const [param, id] of [
+          ["drug", "drug"],
+          ["condition", "condition"],
+          ["sponsor", "sponsor"],
+          ["phase", "phase"],
+          ["start_year", "start_year"],
+          ["end_year", "end_year"],
+        ]) {
+          if (p.get(param)) document.getElementById(id).value = p.get(param);
+        }
+        run();
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+# Render Blueprint. With this file in the repo, Render configures the service itself:
+# New > Blueprint > pick this repo > paste ANTHROPIC_API_KEY when prompted.
+
+services:
+  - type: web
+    name: ctgov-viz-agent
+    runtime: python
+    plan: free
+    buildCommand: pip install --upgrade pip && pip install -e .
+    # Render supplies $PORT and expects the app to bind 0.0.0.0.
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        # sync:false means Render asks for it at deploy time instead of reading it from
+        # this file. The key must never be committed.
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+      # The free tier has an ephemeral filesystem, so the response cache is lost on each
+      # restart. That is fine: it is only an optimisation, and a cold cache just means
+      # the first question of a session is slower.
+      - key: CTGOV_VIZ_CACHE_DIR
+        value: /tmp/ctgov-cache
+      # 20 questions per IP per hour. Raise it if the demo gets real traffic you trust.
+      - key: CTGOV_VIZ_RATE_LIMIT_PER_HOUR
+        value: "20"
