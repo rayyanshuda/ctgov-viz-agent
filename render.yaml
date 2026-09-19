@@ -6,6 +6,11 @@ services:
     name: ctgov-viz-agent
     runtime: python
     plan: free
+    # Oregon (the default) is refused by ClinicalTrials.gov's WAF, which blanket-blocks
+    # that IP pool: every URL on the domain returns 403 from there, including the
+    # homepage. Each Render region is a separate pool, so this is the cheapest thing to
+    # try. Virginia is also closer to the API than Frankfurt or Singapore would be.
+    region: virginia
     buildCommand: pip install --upgrade pip && pip install -e .
     # Render supplies $PORT and expects the app to bind 0.0.0.0.
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
