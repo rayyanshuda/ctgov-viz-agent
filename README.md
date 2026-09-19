@@ -55,30 +55,6 @@ uv run pytest -m live    # 6 more, against the real ClinicalTrials.gov API
 
 ---
 
-## Deploying
-
-`render.yaml` configures a free Render web service, so deploying is: **New > Blueprint >
-pick this repo**, then paste `ANTHROPIC_API_KEY` when prompted. Render reads the build and
-start commands from that file.
-
-Two things the blueprint handles that would otherwise bite:
-
-- **Ephemeral disk.** The response cache is redirected to `/tmp`, since Render's free tier
-  wipes the filesystem on restart. The cache is only an optimisation, so losing it costs a
-  little latency and nothing else.
-- **Rate limiting.** `/visualize` and `/plan` call the Anthropic API, so a public URL is a
-  way for anyone with the link to spend the owner's credits. Both are capped per client
-  (20 questions/hour by default, `CTGOV_VIZ_RATE_LIMIT_PER_HOUR`), returning a `429` that
-  says when to retry. `/health` and `/capabilities` cost nothing to serve and are not
-  limited. The client is identified by `X-Forwarded-For`, because behind a proxy every
-  request otherwise shares one address — that header is spoofable, which is acceptable for
-  a spend guard but would not do as a security control.
-
-Locally the limit is off the critical path; set `CTGOV_VIZ_RATE_LIMIT_ENABLED=false` to
-disable it entirely.
-
----
-
 ## Request schema (inputs)
 
 Only `query` is required. Structured fields are optional and sit at the top level.
