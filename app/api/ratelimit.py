@@ -65,8 +65,8 @@ class SlidingWindowLimiter:
 
 def client_key(request: Request) -> str:
     # Work out who is calling.
-    # Render and most hosts put the real client IP in X-Forwarded-For and their own proxy
-    # IP in request.client, so without this every caller would share one bucket. The
+    # Proxies (Cloudflare's tunnel, and most hosts) put the real client IP in X-Forwarded-For
+    # and their own IP in request.client, so without this every caller would share one bucket. The
     # header is trivially spoofable, which is fine here: this is a spend guard against
     # casual traffic, not a security control.
     forwarded = request.headers.get("x-forwarded-for")

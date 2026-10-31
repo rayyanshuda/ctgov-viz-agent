@@ -81,11 +81,13 @@ class ResponseCache:
             # half-written entry that a later read would treat as valid.
             tmp = self._path_for(key).with_suffix(".tmp")
             tmp.write_text(json.dumps({"expires_at": expires_at, "value": value}))
+            # if temp file succeeds writing, replace old file with temp
             tmp.replace(self._path_for(key))
         except OSError:
             logger.warning("Could not persist cache entry %s", key, exc_info=True)
 
     def _remember(self, key: str, value: Any, expires_at: float) -> None:
+        # if the items in the cache exceed _MEMORY_MAX_ENTRIES, then it automatically deletes LRU
         self._memory[key] = (expires_at, value)
         self._memory.move_to_end(key)
         while len(self._memory) > _MEMORY_MAX_ENTRIES:

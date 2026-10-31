@@ -1,0 +1,56 @@
+# Run it locally:           docker compose up --build        then open http://localhost:8000
+# Also make it public:      docker compose --profile public up -d --build
+#   (the "public" profile adds the Cloudflare tunnel, which needs CLOUDFLARE_TUNNEL_TOKEN in .env)
+
+services:
+  # Postgres holds the saved charts. It has no `ports:` entry, so only the other containers
+  # in this file can reach it, which is why a simple fixed password is fine here.
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ctviz
+      POSTGRES_PASSWORD: ctviz
+      POSTGRES_DB: ctviz
+    volumes:
+      - pgdata:/var/lib/postgresql/data # the named volume keeps the charts when containers are replaced
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ctviz -d ctviz"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  # The FastAPI server, which also serves the React site.
+  app:
+    build: .
+    environment:
+      # Compose reads this from your .env file. Only the key is passed in, not the whole file.
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      # "db" is the name of the service above, which Docker turns into the right address.
+      CTGOV_VIZ_DATABASE_URL: postgresql://ctviz:ctviz@db:5432/ctviz
+    volumes:
+      - cache:/app/.cache # ClinicalTrials.gov response cache, kept between restarts
+    ports:
+      - "127.0.0.1:8000:8000" # only this computer can use localhost:8000; the tunnel does not need it
+    depends_on:
+      db:
+        condition: service_healthy # wait until Postgres accepts connections before migrating
+    restart: unless-stopped
+
+  # Makes the app reachable at https://ctviz.rayyanhuda.com. The tunnel dials OUT to Cloudflare,
+  # so no ports are opened on this computer. Cloudflare sends visitors to http://app:8000
+  # (the public hostname set in the Cloudflare dashboard).
+  tunnel:
+    image: cloudflare/cloudflared:2026.10.7
+    profiles: ["public"] # skipped by a plain `docker compose up`
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      app:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  cache:

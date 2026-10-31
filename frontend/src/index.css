@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+/* Design tokens from DESIGN.md. Tailwind turns each --color-* into utilities like
+   bg-canvas, text-ink, text-clinical, bg-ai, border-alert. Spacing stays on Tailwind's
+   4px scale and we only use 1 (4px), 2 (8px) and 4 (16px). */
+@theme {
+  --font-sans: "SF Pro Text", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-canvas: #f4f1ec; /* app background: warm off-white, like the gradient reference */
+  --color-ink: #0f172a; /* text and strong headers */
+  --color-clinical: #2563eb; /* links, controls, navigation */
+  --color-ai: #7c3aed; /* AI-generated states only */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-alert: #ef4444;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+/* ---- Animated background (see components/AnimatedBackground.tsx) -------------------------
+   Four big soft colour blobs drift very slowly over a warm off-white, with a fine grain on
+   top, like a blurred gradient print. The blobs are radial gradients that fade to transparent,
+   so no expensive blur filter is needed, and only `transform` is animated (cheap for the GPU).
+   Each blob sets how far it drifts (--dx, --dy) and how much it grows (--s). */
+.blob {
+  position: absolute;
+  width: 55vmax;
+  height: 55vmax;
+  border-radius: 9999px;
+  background: radial-gradient(closest-side, var(--c), transparent 70%);
+  opacity: 0.5;
+  will-change: transform;
+  animation: drift var(--t) ease-in-out infinite alternate;
+}
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(var(--dx), var(--dy), 0) scale(var(--s));
+  }
+}
+.blob-pink {
+  --c: #f06fa8;
+  --t: 38s;
+  --dx: 12vmax;
+  --dy: 8vmax;
+  --s: 1.15;
+  top: -20vmax;
+  left: -15vmax;
+}
+.blob-purple {
+  --c: #9b6fd6;
+  --t: 46s;
+  --dx: -10vmax;
+  --dy: 10vmax;
+  --s: 1.2;
+  top: -25vmax;
+  right: -20vmax;
+}
+.blob-blue {
+  --c: #6fb6f0;
+  --t: 42s;
+  --dx: -12vmax;
+  --dy: -8vmax;
+  --s: 1.1;
+  bottom: -28vmax;
+  right: -10vmax;
+}
+.blob-peach {
+  --c: #f7b79a;
+  --t: 50s;
+  --dx: 10vmax;
+  --dy: -10vmax;
+  --s: 1.2;
+  bottom: -25vmax;
+  left: -5vmax;
+}
+
+/* Fine film grain: a tiny SVG noise tile repeated across the screen */
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* People who ask their system for less motion get the same picture, standing still */
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none;
+  }
+}

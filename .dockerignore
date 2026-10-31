@@ -1,0 +1,22 @@
+# Keep these out of the build: secrets, local junk, and things the image rebuilds itself.
+.git
+.env
+.venv
+.cache
+.pytest_cache
+**/__pycache__
+.DS_Store
+
+# The frontend is rebuilt inside Docker, so the local copies are not needed
+frontend/node_modules
+frontend/dist
+frontend/openapi.json
+
+# Not needed to run the server
+tests/
+docs/
+demo/
+examples/
+*.zip
+*.md
+render.yaml

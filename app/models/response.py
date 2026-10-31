@@ -218,6 +218,11 @@ class VisualizeResponse(BaseModel):
         description="NCT ID to trial title and URL, for every trial cited anywhere in the "
         "response.",
     )
+    chart_id: str | None = Field(
+        default=None,
+        description="Id of the saved copy of this chart, usable at /api/v1/charts/{id}. "
+        "Absent when saving is switched off or the query matched no trials.",
+    )
 
 
 class ErrorResponse(BaseModel):

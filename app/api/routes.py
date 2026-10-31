@@ -8,6 +8,8 @@
 
 from __future__ import annotations
 
+import logging
+
 from fastapi import APIRouter, Depends, Request
 
 from app.agent.planner import LLMPlanner, PlanningResult
@@ -15,6 +17,7 @@ from app.api.ratelimit import enforce_rate_limit
 from app.analysis.dimensions import DIMENSIONS
 from app.analysis.measures import MEASURES, METRICS
 from app.config import Settings
+from app.db import repo
 from app.ctgov.client import CTGovClient
 from app.ctgov.enums import (
     INTERVENTION_TYPES,
@@ -28,6 +31,8 @@ from app.models.plan import AnalysisPlan, VisualizationType
 from app.models.request import VisualizeRequest
 from app.models.response import CapabilitiesResponse, VisualizeResponse
 from app.viz.compatibility import ALLOWED_TYPES
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
@@ -60,7 +65,19 @@ async def _plan(request: Request, payload: VisualizeRequest) -> PlanningResult:
 async def visualize(request: Request, payload: VisualizeRequest) -> VisualizeResponse:
     result = await _plan(request, payload)
     executor = PlanExecutor(_client(request), _settings(request).max_studies)
-    return await executor.execute(result.plan, payload, extra_warnings=result.warnings)
+    response = await executor.execute(result.plan, payload, extra_warnings=result.warnings)
+
+    # Save the chart if a database is configured. A chart with no data isn't worth saving.
+    # If saving fails, we still return the answer: the user asked a question, not to save.
+    db = request.app.state.db
+    if db is not None and response.status == "ok":
+        try:
+            async with db() as session:
+                row = await repo.save_chart(session, payload, result.plan, response)
+            response.chart_id = row.id
+        except Exception:
+            logger.warning("Could not save chart", exc_info=True)
+    return response
 
 
 @router.post(
@@ -138,4 +155,5 @@ async def health(request: Request) -> dict[str, object]:
         "model": settings.model,
         "ctgov_api": settings.ctgov_base_url,
         "cache_enabled": settings.cache_enabled,
+        "database_configured": bool(settings.database_url),
     }

@@ -144,6 +144,7 @@ class CTGovClient:
                 await asyncio.sleep(delay)
 
         if last_error == "HTTP 403":
+            # 403 error is sometimes given for 429 errors too (api is just busy so retry does help)
             # Telling the caller to "retry shortly" here would be wrong: a sustained 403
             # is the upstream WAF refusing this source address, not a passing blip.
             raise UpstreamError(

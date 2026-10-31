@@ -199,4 +199,7 @@ class TestOpenAPI:
             "/api/v1/plan",
             "/api/v1/capabilities",
             "/api/v1/health",
+            "/api/v1/charts",
+            "/api/v1/charts/{chart_id}",
+            "/api/v1/charts/{chart_id}/refresh",
         }

@@ -59,11 +59,17 @@ class Settings(BaseSettings):
 
     rate_limit_per_hour: int = 20
 
+    database_url: str | None = None
+    # Where saved charts are stored, e.g. postgresql://user:pass@host/dbname.
+    # Leave it unset and saving is switched off: the API works exactly as it did before.
+
     cache_dir: str = ".cache"
     cache_ttl_seconds: int = 86_400
     cache_enabled: bool = True
 
 
 @lru_cache(maxsize=1)
+# reads .env and env var into a Settings object, sent to an LRU cache
+# so it only parses .env once at the start, and every call returns the same
 def get_settings() -> Settings:
     return Settings()

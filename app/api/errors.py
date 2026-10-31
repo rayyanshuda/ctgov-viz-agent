@@ -11,6 +11,7 @@ from fastapi.responses import JSONResponse
 from app.api.ratelimit import RateLimitedError
 from app.errors import (
     AnalysisError,
+    ChartNotFoundError,
     ConfigurationError,
     CtgovVizError,
     PlanningError,
@@ -28,6 +29,7 @@ STATUS_BY_ERROR: dict[type[CtgovVizError], int] = {
     UnsupportedQueryError: 422,
     AnalysisError: 500,
     RateLimitedError: 429,
+    ChartNotFoundError: 404,
 }
 
 

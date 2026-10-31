@@ -49,3 +49,10 @@ class AnalysisError(CtgovVizError):
     # This error is given if the validated plan couldn't be executed on the retrieved data
 
     code = "analysis_error"
+
+
+class ChartNotFoundError(CtgovVizError):
+    # This error is given if a saved chart id doesn't exist
+
+    code = "chart_not_found"
+    remedy = "Check the link, or look the chart up in the history list."
