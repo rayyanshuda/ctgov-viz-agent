@@ -55,8 +55,10 @@ export function AskPage() {
         <div>
           <h1 className="text-3xl font-semibold text-ink">Ask about clinical trials</h1>
           <p className="mt-1 text-sm text-slate-600">
-            Ask in plain language. The agent plans the analysis, retrieves trials from ClinicalTrials.gov, and draws a
-            chart where every number links back to its source trials.
+            Clinical trials can be confusing and complex. 
+            Ask questions and this agent will handle the analysis, 
+            fetch data from ClinicalTrials.gov, and map it into 
+            interactive visualizations with citations. Give it a try!
           </p>
         </div>
         <AskBox large />
@@ -74,7 +76,7 @@ export function AskPage() {
         <Card title="A question is required">
           <p className="mb-2 text-sm text-slate-600">
             The filters decide <em>which</em> trials are retrieved; the question decides <em>what to show</em> about
-            them. Type one in the question box above, or pick one of these:
+            them. Type one in the question box above, or pick one of these sample questions to see how the agent works:
           </p>
           <Chips questions={suggestedQuestions(filters)} onPick={(q) => submit(q)} />
         </Card>

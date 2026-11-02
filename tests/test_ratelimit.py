@@ -51,7 +51,7 @@ class TestClientKey:
         )
 
     def test_prefers_the_forwarded_header(self):
-        # Behind Render's proxy every request has the same request.client.host, so
+        # Behind a proxy (like Cloudflare's tunnel) every request has the same request.client.host, so
         # without this one visitor would exhaust the limit for everyone.
         request = self._request({"x-forwarded-for": "203.0.113.5"})
         assert client_key(request) == "203.0.113.5"
